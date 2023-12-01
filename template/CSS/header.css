@@ -1,50 +1,48 @@
+@import url("root.css");
+
 body {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 .header {
-    height: 100px;
-    color: white;
-    background-color: #2F72E5;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    padding: 0 100px;
+  height: 100px;
+  color: white;
+  background-color: var(--main-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 100px;
 }
 
 .header__title {
-    font-size: 36px;
+  font-size: var(--font-size-bigest);
 }
 
 .header__user {
-    display: flex;
-    align-items: center;
-    position: relative;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 8px;
 }
 
-.user_logOutBtn-open {
-    transform: rotateX(180deg);
+.user__logOutBtn-open {
+  transform: rotateX(180deg);
 }
 
 .user__logOut {
-    display: flex;
-    position: absolute;
-    top: 40px;
-    right: 0;
-
-    padding: 8px 12px;
-    gap: 8px;
-
-    font-weight: 600;
-
-    color: #B74E5F;
-    background-color: white;
-    border-radius: 6px;
+  display: flex;
+  position: absolute;
+  top: 40px;
+  right: 0;
+  padding: 8px 12px;
+  gap: 8px;
+  font-weight: 600;
+  color: var(--logout);
+  background-color: white;
+  border-radius: var(--radius-size-small);
 }
 
 .user__logOut-close {
-    display: none;
+  display: none;
 }

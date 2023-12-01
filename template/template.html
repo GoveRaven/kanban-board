@@ -4,19 +4,38 @@
     <meta charset="UTF-8" />
     <title>Template</title>
     <link rel="stylesheet" href="CSS/header.css" />
+    <link rel="stylesheet" href="CSS/task.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #ebf3fa;
+        font-family: inter;
+      }
+    </style>
   </head>
   <body>
-      <header class="header">
-        <h1 class="header_title">Канбан-доска</h1>
-        <div class="header__user">
-          <img src="img/Аватарка.png" alt="Аватар" class="user_avatar" />
-          <span class="user_name">user name</span>
-          <span class="user_logOutBtn">▼</span>
-          <div class="user__logOut user__logOut-close">
-            <img src="img/Exit.svg" alt="" />
-            <span class="logOut_title"> Выйти</span>
-          </div>
+    <header class="header">
+      <h1 class="header_title">Канбан-доска</h1>
+      <div class="header__user">
+        <img src="img/Avatar.png" alt="Аватар" class="user__avatar" />
+        <span class="user__name">user name</span>
+        <span class="user__logOutBtn">▼</span>
+        <div class="user__logOut user__logOut-close">
+          <img src="img/Exit.svg" alt="Иконка выхода" />
+          <span class="logOut__title">Выйти</span>
         </div>
-      </header>
+      </div>
+    </header>
+    <div class="tasks">
+      <div class="task backlog"><span>Сделать домашку</span></div>
+      <div class="task inProgress"><span>Сделать домашку</span></div>
+      <div class="task ready"><span>Сделать домашку</span></div>
+      <div class="task trashCan"><span>Сделать домашку</span></div>
+    </div>
   </body>
 </html>

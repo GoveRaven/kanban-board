@@ -1,0 +1,10 @@
+:root {
+  --main-color: #2f72e5;
+  --logout: #b74e5f;
+  --backlog: #dfdfdf;
+  --inProgress: #d1e2f8;
+  --ready: #d3fddc;
+  --trashCan: #f7dbdb;
+  --radius-size-small: 6px;
+  --font-size-bigest: 36px;
+}
