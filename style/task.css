@@ -27,8 +27,8 @@
   border-color: var(--trashCan-color);
 }
 
-.task_no-task {
+.tasks_no-task {
   background-color: initial;
-  border: 2px dashed var(--no-task-color);
+  border: 2px dashed var(--no-tasks-color);
   color: var(--no-task-color);
 }
