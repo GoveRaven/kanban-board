@@ -11,4 +11,10 @@
 
 body {
   font-family: Inter;
+  height: 100vh;
+  background-color: #EBF3FA;
+}
+
+main {
+  height: 100%;
 }
