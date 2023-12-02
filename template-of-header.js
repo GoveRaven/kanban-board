@@ -1,5 +1,5 @@
 // Шаблон шапки
-class templateOFHeader extends HTMLElement {
+class TemplateOFHeader extends HTMLElement {
   constructor() {
     super()
   }
@@ -9,16 +9,5 @@ class templateOFHeader extends HTMLElement {
   }
 }
 
-customElements.define("template-header", templateOFHeader);
+customElements.define("template-header", TemplateOFHeader);
 
-class templateOFTasks extends HTMLElement {
-  constructor() {
-    super();
-  }
-
-  connectedCallback() {
-    this.innerHTML = '<div class="task"></div>';
-  }
-}
-
-customElements.define("template-task", templateOFTasks);
