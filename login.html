@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Канбан-доска</title>
+    <link rel="stylesheet" href="style/reset.css" />
+    <link rel="stylesheet" href="style/header.css" />
+    <link rel="stylesheet" href="style/task.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="templates.js"></script>
+  </head>
+  <body>
+    <template-header></template-header>
+    <main class="main">
+      <div class="main__new-task">
+        <h2 class="new-task_title">Новая задача</h2>
+        <input type="text" class="new-task_title" />
+        <button class="new-task_btn"></button>
+      </div>
+      <div class="main__tasks">
+        <div class="tasks__backlog"></div>
+        <div class="tasks__inProgress"></div>
+        <div class="tasks__ready"></div>
+        <div class="tasks__trashCan">
+          <button><img src="img/cross.svg" alt="крестик">Очистить</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
