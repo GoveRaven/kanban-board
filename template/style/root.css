@@ -5,10 +5,17 @@
   --inProgress-color: #d1e2f8;
   --ready-color: #d3fddc;
   --trashCan-color: #f7dbdb;
+  --empty-color: #A1A1A1;
   --radius-size-small: 6px;
   --font-size-bigest: 36px;
 }
 
 body {
   font-family: Inter;
+  height: 100vh;
+  background-color: #EBF3FA;
+}
+
+main {
+  height: 100%;
 }
