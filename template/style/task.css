@@ -13,22 +13,22 @@
 
   font-weight: 600;
 
-  /* убрать на странице */
+  /* TODO: убрать на странице */
   margin: 40px 200px;
 }
 
 .backlog {
-  border-color: var(--backlog);
+  border-color: var(--backlog-color);
 }
 
 .inProgress {
-  border-color: var(--inProgress);
+  border-color: var(--inProgress-color);
 }
 
 .ready {
-  border-color: var(--ready);
+  border-color: var(--ready-color);
 }
 
 .trashCan {
-  border-color: var(--trashCan);
+  border-color: var(--trashCan-color);
 }
