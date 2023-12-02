@@ -17,7 +17,7 @@ class templateOFTasks extends HTMLElement {
   }
 
   connectedCallback() {
-    this.innerHTML = '<div class="task"><span></span></div>';
+    this.innerHTML = '<div class="task"></div>';
   }
 }
 
