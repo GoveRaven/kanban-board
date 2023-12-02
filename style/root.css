@@ -7,15 +7,20 @@
   --trashCan-color: #f7dbdb;
   --no-tasks-color: #A1A1A1;
   --radius-size-small: 6px;
-  --font-size-bigest: 36px;
+  --radius-size-medium: 20px;
+  --font-size-bigest: 40px;
+  --font-size-big: 36px;
+  --font-size-for-btn: 28px;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   font-family: Inter, Arial, sans-serif;
   min-height: 100vh;
   background-color: #EBF3FA;
 }
 
 main {
-  min-height: 100%;
+  flex-grow: 1;
 }

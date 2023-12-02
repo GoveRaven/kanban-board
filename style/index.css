@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main__title {
+    font-size: var(--font-size-bigest);
+}
+
+.main__btn {
+    display: flex;
+    align-items: center;
+    gap: 66px;
+    margin: 24px;
+    padding: 16px 72px 16px 24px;
+    font-size: var(--font-size-for-btn);
+    background-color: black;
+    color: white;
+    border-radius: var(--radius-size-medium);
+}
