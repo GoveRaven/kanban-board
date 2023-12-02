@@ -3,18 +3,12 @@
 .task {
   box-sizing: border-box;
   width: 280px;
-
   padding: 20px;
-
   background-color: white;
   border-radius: var(--radius-size-small);
   border-width: 0 0 0 6px;
   border-style: solid;
-
   font-weight: 600;
-
-  /* TODO: убрать на странице */
-  margin: 40px 200px;
 }
 
 .backlog {
@@ -31,4 +25,10 @@
 
 .trashCan {
   border-color: var(--trashCan-color);
+}
+
+.empty {
+  background-color: inherit;
+  border: 2px dashed var(--empty-color);
+  color: var(--empty-color);
 }
