@@ -1,5 +1,4 @@
-// Шаблон шапки
-class TemplateOFHeader extends HTMLElement {
+class HeaderTemplate extends HTMLElement {
   constructor() {
     super()
   }
@@ -9,5 +8,4 @@ class TemplateOFHeader extends HTMLElement {
   }
 }
 
-customElements.define("template-header", TemplateOFHeader);
-
+customElements.define("template-header", HeaderTemplate);
