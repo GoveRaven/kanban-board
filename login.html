@@ -12,7 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
-    <script src="templates.js"></script>
+    <script src="template-of-header.js"></script>
+    <script src="template-of-task.js"></script>
   </head>
   <body>
     <template-header></template-header>
@@ -20,14 +21,14 @@
       <div class="main__new-task">
         <h2 class="new-task_title">Новая задача</h2>
         <input type="text" class="new-task_title" />
-        <button class="new-task_btn"></button>
+        <button class="new-task_btn"><img src="img/Plus.svg" alt="плюс">Добавить</button>
       </div>
       <div class="main__tasks">
         <div class="tasks__backlog"></div>
         <div class="tasks__inProgress"></div>
         <div class="tasks__ready"></div>
         <div class="tasks__trashCan">
-          <button><img src="img/cross.svg" alt="крестик">Очистить</button>
+          <button><img src="img/cross.svg" alt="крест">Очистить</button>
         </div>
       </div>
     </main>
