@@ -11,24 +11,24 @@
   font-weight: 600;
 }
 
-.backlog {
+.task_backlog {
   border-color: var(--backlog-color);
 }
 
-.inProgress {
+.task_inProgress {
   border-color: var(--inProgress-color);
 }
 
-.ready {
+.task_ready {
   border-color: var(--ready-color);
 }
 
-.trashCan {
+.task_trashCan {
   border-color: var(--trashCan-color);
 }
 
-.empty {
-  background-color: inherit;
-  border: 2px dashed var(--empty-color);
-  color: var(--empty-color);
+.task_no-task {
+  background-color: initial;
+  border: 2px dashed var(--no-task-color);
+  color: var(--no-task-color);
 }
