@@ -5,12 +5,12 @@
   --inProgress-color: #d1e2f8;
   --ready-color: #d3fddc;
   --trashCan-color: #f7dbdb;
-  --no-tasks-color: #A1A1A1;
+  --noTasks-color: #A1A1A1;
   --radius-size-small: 6px;
   --radius-size-medium: 20px;
-  --font-size-bigest: 40px;
+  --font-size-large: 40px;
   --font-size-big: 36px;
-  --font-size-for-btn: 28px;
+  --font-size-signInBtn: 28px;
 }
 
 body {
