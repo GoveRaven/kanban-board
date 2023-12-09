@@ -22,7 +22,6 @@
 }
 
 .task__icon {
-  fill: none;
   stroke: black;
   padding: 6px;
   box-sizing: content-box;
@@ -31,10 +30,6 @@
 
 .task:hover .task__icon {
   visibility: visible;
-}
-
-.task_no-tasks:hover .task__icon {
-  visibility: hidden;
 }
 
 .task_editing .task__text {
@@ -47,11 +42,6 @@
   background-color: var(--lightblue-color);
   stroke: var(--lightblue-color-hover);
   border-radius: 4px;
-}
-
-.task_dragndrop .task__icon_editing {
-  stroke: black;
-  background-color: initial;
 }
 
 .task_backlog {
