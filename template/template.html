@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Template</title>
-    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/reset.css" />
     <link rel="stylesheet" href="style/header.css" />
     <link rel="stylesheet" href="style/task.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,11 +27,87 @@
       </div>
     </header>
     <div class="tasks">
-      <div class="task task_backlog">Сделать домашку</div>
-      <div class="task task_inProgress">Сделать домашку</div>
-      <div class="task task_ready">Сделать домашку</div>
-      <div class="task task_trashCan">Сделать домашку</div>
-      <div class="task task_no-tasks">Сделать домашку</div>
+      <!-- TODO 
+        Обычное состояние -->
+      <div class="task task_backlog">
+        <span class="task__text">Сделать домашку</span>
+        <svg
+          width="18"
+          height="17"
+          viewBox="0 0 18 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="task__icon"
+        >
+          <path
+            d="M3.156 10.563L1 16.0176L6.74957 14.8753M3.156 10.563L6.74957 14.8753M3.156 10.563L11.7806 1.93845M6.74957 14.8753L16.0929 6.25074M11.7806 1.93845L16.0929 6.25074M11.7806 1.93845C12.1448 1.57425 14.6556 0.205922 16.0929 1.64329C17.5301 3.08065 17.0511 5.29246 16.0929 6.25074"
+          />
+        </svg>
+      </div>
+      <!-- TODO 
+        Задачу перетаскивают -->
+      <div class="task task_inProgress task_dragndrop">
+        <span class="task__text">Сделать домашку</span>
+        <svg
+          width="18"
+          height="17"
+          viewBox="0 0 18 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="task__icon task__icon_editing"
+        >
+          <path
+            d="M3.156 10.563L1 16.0176L6.74957 14.8753M3.156 10.563L6.74957 14.8753M3.156 10.563L11.7806 1.93845M6.74957 14.8753L16.0929 6.25074M11.7806 1.93845L16.0929 6.25074M11.7806 1.93845C12.1448 1.57425 14.6556 0.205922 16.0929 1.64329C17.5301 3.08065 17.0511 5.29246 16.0929 6.25074"
+          />
+        </svg>
+      </div>
+      <div class="task task_ready task_editing">
+        <!-- TODO 
+        Редактируется -->
+        <span class="task__text">Сделать домашку</span>
+        <svg
+          width="18"
+          height="17"
+          viewBox="0 0 18 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="task__icon"
+        >
+          <path
+            d="M3.156 10.563L1 16.0176L6.74957 14.8753M3.156 10.563L6.74957 14.8753M3.156 10.563L11.7806 1.93845M6.74957 14.8753L16.0929 6.25074M11.7806 1.93845L16.0929 6.25074M11.7806 1.93845C12.1448 1.57425 14.6556 0.205922 16.0929 1.64329C17.5301 3.08065 17.0511 5.29246 16.0929 6.25074"
+          />
+        </svg>
+      </div>
+      <div class="task task_trashCan">
+        <span class="task__text">Сделать домашку</span>
+        <svg
+          width="18"
+          height="17"
+          viewBox="0 0 18 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="task__icon task__icon_editing"
+        >
+          <path
+            d="M3.156 10.563L1 16.0176L6.74957 14.8753M3.156 10.563L6.74957 14.8753M3.156 10.563L11.7806 1.93845M6.74957 14.8753L16.0929 6.25074M11.7806 1.93845L16.0929 6.25074M11.7806 1.93845C12.1448 1.57425 14.6556 0.205922 16.0929 1.64329C17.5301 3.08065 17.0511 5.29246 16.0929 6.25074"
+          />
+        </svg>
+      </div>
+      <div class="task task_no-tasks">
+        Добавьте задачу выше
+        <svg
+          width="18"
+          height="17"
+          viewBox="0 0 18 17"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="task__icon"
+        >
+          <path
+            d="M3.156 10.563L1 16.0176L6.74957 14.8753M3.156 10.563L6.74957 14.8753M3.156 10.563L11.7806 1.93845M6.74957 14.8753L16.0929 6.25074M11.7806 1.93845L16.0929 6.25074M11.7806 1.93845C12.1448 1.57425 14.6556 0.205922 16.0929 1.64329C17.5301 3.08065 17.0511 5.29246 16.0929 6.25074"
+          />
+        </svg>
+      </div>
     </div>
   </body>
 </html>

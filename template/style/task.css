@@ -1,9 +1,13 @@
 @import url("root.css");
 
 .task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   box-sizing: border-box;
   width: 280px;
   padding: 20px;
+  gap: 10px;
   background-color: white;
   border-radius: var(--radius-size-small);
   border-width: 0 0 0 6px;
@@ -13,12 +17,49 @@
   margin: 40px 200px;
 }
 
+.task_dragndrop {
+  opacity: 0.5;
+}
+
+.task__icon {
+  fill: none;
+  stroke: black;
+  padding: 6px;
+  box-sizing: content-box;
+  visibility: hidden;
+}
+
+.task:hover .task__icon {
+  visibility: visible;
+}
+
+.task_no-tasks:hover .task__icon {
+  visibility: hidden;
+}
+
+.task_editing .task__text {
+  flex-grow: 1;
+  border: 1px solid var(--lightblue-color-hover);
+  border-radius: 4px;
+}
+
+.task_editing .task__icon {
+  background-color: var(--lightblue-color);
+  stroke: var(--lightblue-color-hover);
+  border-radius: 4px;
+}
+
+.task_dragndrop .task__icon_editing {
+  stroke: black;
+  background-color: initial;
+}
+
 .task_backlog {
   border-color: var(--backlog-color);
 }
 
 .task_inProgress {
-  border-color: var(--inProgress-color);
+  border-color: var(--lightblue-color);
 }
 
 .task_ready {
@@ -31,6 +72,6 @@
 
 .task_no-tasks {
   background-color: initial;
-  border: 2px dashed var(--no-tasks-color);
-  color: var(--no-task-color);
+  border: 2px dashed var(--noTasks-color);
+  color: var(--noTasks-color);
 }
