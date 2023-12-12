@@ -1,30 +1,17 @@
 :root {
   --main-color: #2f72e5;
-  --lightblue-color-hover: #4280ea;
-  --newTaskBtn-color-active: #075bea;
-  --newTaskBtn-color-focus: #2069e5;
-  --newTaskBtn-border-focus: #2237f1;
+  --editing-color: #4280ea;
   --red-color: #b74e5f;
   --backlog-color: #dfdfdf;
-  --backlog-font-color: #606060;
-  --lightblue-color: #d1e2f8;
-  --inProgress-font-color: #4070be;
+  --inProgress-color: #d1e2f8;
   --ready-color: #d3fddc;
-  --ready-font-color: #6eb171;
   --trashCan-color: #f7dbdb;
-  --trashCan-font-color: #a15364;
-  --trashCanBtn-color-hover: #bd5f6f;
-  --trashCanBtn-color-active: #c7384f;
   --trashCanBtn-color-focus: #be4155;
-  --trashCanBtn-border-focus: #a00000;
-  --disabledBtn-color: #d8d8d8;
   --noTasks-color: #a1a1a1;
+  --disabledBtn-color: #d8d8d8;
   --newTaskName-color: #cecece;
   --radius-size-small: 6px;
-  --radius-size-medium: 20px;
-  --font-size-large: 40px;
-  --font-size-big: 36px;
-  --font-size-normal: 16px;
+  --radius-size-editing: 4px
 }
 
 body {

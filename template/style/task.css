@@ -1,4 +1,4 @@
-@import url("root.css");
+@import url('root.css');
 
 .task {
   display: flex;
@@ -34,14 +34,14 @@
 
 .task_editing .task__text {
   flex-grow: 1;
-  border: 1px solid var(--lightblue-color-hover);
-  border-radius: 4px;
+  border: 1px solid var(--editing-color);
+  border-radius: var(--radius-size-editing);
 }
 
 .task_editing .task__icon {
-  background-color: var(--lightblue-color);
-  stroke: var(--lightblue-color-hover);
-  border-radius: 4px;
+  background-color: #d1e2f8;
+  stroke: var(--editing-color);
+  border-radius: var(--radius-size-editing);
 }
 
 .task_backlog {
@@ -49,7 +49,7 @@
 }
 
 .task_inProgress {
-  border-color: var(--lightblue-color);
+  border-color: #d1e2f8;
 }
 
 .task_ready {
