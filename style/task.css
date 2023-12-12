@@ -1,5 +1,3 @@
-@import url('root.css');
-
 .task {
   display: flex;
   justify-content: space-between;
@@ -47,7 +45,7 @@
 }
 
 .task_inProgress {
-  border-color: #d1e2f8;
+  border-color: var(--inProgress-color);
 }
 
 .task_ready {
