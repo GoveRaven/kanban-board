@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Канбан-доска</title>
+    <link rel="stylesheet" href="style/root.css">
     <link rel="stylesheet" href="style/reset.css" />
     <link rel="stylesheet" href="style/login.css" />
     <link rel="stylesheet" href="style/header.css" />
@@ -33,23 +34,22 @@
         </div>
       </div>
       <div class="main__tasks">
-        <div class="tasks__wrapper tasks__backlog">
+        <div class="tasks__wrapper tasks_backlog">
           <div class="tasks__title tasks__title_backlog">Бэклог</div>
           <div class="tasks__list">
-            <template-task></template-task> <template-task></template-task>
           </div>
         </div>
-        <div class="tasks__wrapper tasks__inProgress">
+        <div class="tasks__wrapper tasks_inProgress">
           <div class="tasks__title tasks__title_inProgress">В процессе</div>
-          <div class="tasks__list"><template-task></template-task></div>
+          <div class="tasks__list"></div>
         </div>
-        <div class="tasks__wrapper tasks__ready">
+        <div class="tasks__wrapper tasks_ready">
           <div class="tasks__title tasks__title_ready">Готово</div>
-          <div class="tasks__list"><template-task></template-task></div>
+          <div class="tasks__list"></div>
         </div>
-        <div class="tasks__wrapper tasks__trashCan">
+        <div class="tasks__wrapper tasks_trashCan">
           <div class="tasks__title tasks__title_trashCan">Корзина</div>
-          <div class="tasks__list"><template-task></template-task></div>
+          <div class="tasks__list"></div>
           <button class="trashCan__btn">
             <img src="img/cross.svg" alt="иконка креста" />Очистить
           </button>
