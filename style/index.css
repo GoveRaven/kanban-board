@@ -7,7 +7,7 @@
 }
 
 .main__title {
-    font-size: var(--font-size-large);
+    font-size: 40px;
 }
 
 .main__signInBtn {
@@ -15,8 +15,8 @@
     align-items: center;
     gap: 66px;
     padding: 16px 72px 16px 24px;
-    font-size: var(--font-size-signInBtn);
+    font-size: 28px;
     background-color: black;
     color: white;
-    border-radius: var(--radius-size-medium);
+    border-radius: 20px;
 }

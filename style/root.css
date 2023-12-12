@@ -1,16 +1,17 @@
 :root {
   --main-color: #2f72e5;
-  --logout-color: #b74e5f;
+  --editing-color: #4280ea;
+  --red-color: #b74e5f;
   --backlog-color: #dfdfdf;
   --inProgress-color: #d1e2f8;
   --ready-color: #d3fddc;
   --trashCan-color: #f7dbdb;
+  --trashCanBtn-color-focus: #be4155;
   --noTasks-color: #a1a1a1;
+  --disabledBtn-color: #d8d8d8;
+  --newTaskName-color: #cecece;
   --radius-size-small: 6px;
-  --radius-size-medium: 20px;
-  --font-size-large: 40px;
-  --font-size-big: 36px;
-  --font-size-signInBtn: 28px;
+  --radius-size-editing: 4px
 }
 
 body {
@@ -18,9 +19,11 @@ body {
   flex-direction: column;
   font-family: Inter, Arial, sans-serif;
   min-height: 100vh;
-  background-color: #EBF3FA;
+  background-color: #ebf3fa;
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   flex-grow: 1;
 }
