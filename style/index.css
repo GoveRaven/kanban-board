@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;
+}
+
+.main__title {
+    font-size: 40px;
+}
+
+.main__signInBtn {
+    display: flex;
+    align-items: center;
+    gap: 66px;
+    padding: 16px 72px 16px 24px;
+    font-size: 28px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}

@@ -1,0 +1,67 @@
+@import url('root.css');
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 280px;
+  padding: 20px;
+  gap: 10px;
+  background-color: white;
+  border-radius: var(--radius-size-small);
+  border-width: 0 0 0 6px;
+  border-style: solid;
+  font-weight: 600;
+  /* TODO: убрать на странице */
+  margin: 40px 200px;
+}
+
+.task_dragndrop {
+  opacity: 0.5;
+}
+
+.task__icon {
+  stroke: black;
+  padding: 6px;
+  box-sizing: content-box;
+  visibility: hidden;
+}
+
+.task:hover .task__icon {
+  visibility: visible;
+}
+
+.task_editing .task__text {
+  flex-grow: 1;
+  border: 1px solid var(--editing-color);
+  border-radius: var(--radius-size-editing);
+}
+
+.task_editing .task__icon {
+  background-color: #d1e2f8;
+  stroke: var(--editing-color);
+  border-radius: var(--radius-size-editing);
+}
+
+.task_backlog {
+  border-color: var(--backlog-color);
+}
+
+.task_inProgress {
+  border-color: #d1e2f8;
+}
+
+.task_ready {
+  border-color: var(--ready-color);
+}
+
+.task_trashCan {
+  border-color: var(--trashCan-color);
+}
+
+.task_no-tasks {
+  background-color: initial;
+  border: 2px dashed var(--noTasks-color);
+  color: var(--noTasks-color);
+}

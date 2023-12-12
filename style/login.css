@@ -1,0 +1,154 @@
+.header {
+  margin-bottom: 56px;
+}
+
+.main {
+  width: 100%;
+  padding: 0 100px;
+  gap: 36px;
+  overflow-x: scroll;
+}
+
+.main__new-task {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 12px;
+}
+
+.new-task__title {
+  font-size: 28px;
+}
+
+.new-task__wrapper {
+  display: flex;
+  gap: 16px;
+}
+
+.new-task__name {
+  height: 48px;
+  padding-left: 8px;
+  color: var(--newTaskName-color);
+  border: 1px solid var(--newTaskName-color);
+  border-radius: var(--radius-size-small);
+}
+
+.new-task__name:focus {
+  outline: 1px solid var(--main-color);
+  color: black;
+}
+
+.new-task__btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 32px;
+  height: 48px;
+  font-size: 16px;
+  color: white;
+  background-color: var(--main-color);
+  border-radius: var(--radius-size-small);
+  border: none;
+}
+
+.new-task__btn:hover {
+  background-color: #4280ea;
+}
+
+.new-task__btn:active {
+  background-color: #075bea;
+}
+
+.new-task__btn:focus-visible {
+  background-color: #2069e5;
+  outline: 2px solid #2237f1;
+}
+
+.new-task__btn:disabled {
+  background-color: var(--disabledBtn-color);
+}
+
+.main__tasks {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.tasks__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.tasks__wrapper:last-child {
+  padding-right: 16px;
+}
+
+.tasks__title {
+  display: flex;
+  justify-content: center;
+  align-self: flex-start;
+  font-size: 20px;
+  padding: 8px 16px;
+  margin-bottom: 12px;
+  border-radius: var(--radius-size-small);
+}
+
+.tasks__title_backlog {
+  color: #606060;
+  background-color: var(--backlog-color);
+}
+
+.tasks__title_inProgress {
+  color: #4070be;
+  background-color: var(--inProgress-color);
+}
+
+.tasks__title_ready {
+  color: #6eb171;
+  background-color: var(--ready-color);
+}
+
+.tasks__title_trashCan {
+  color: #a15364;
+  background-color: var(--trashCan-color);
+}
+
+.tasks__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.trashCan__btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 48px;
+  width: 100%;
+  color: white;
+  font-size: 16px;
+  background-color: var(--red-color);
+  border: none;
+  border-radius: var(--radius-size-small);
+}
+
+.trashCan__btn:hover {
+  background-color: #bd5f6f;
+}
+
+.trashCan__btn:active {
+  background-color: #c7384f;
+}
+
+.trashCan__btn:focus-visible {
+  background-color: #be4155;
+  outline: 2px solid #a00000;
+}
+
+.trashCan__btn:disabled {
+  background-color: var(--disabledBtn-color);
+}
