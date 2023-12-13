@@ -11,7 +11,7 @@
 }
 
 .header__title {
-  font-size: var(--font-size-big);
+  font-size: 36px;
 }
 
 .header__user {
@@ -33,9 +33,13 @@
   padding: 8px 12px;
   gap: 8px;
   font-weight: 600;
-  color: var(--logout-color);
+  color: var(--red-color);
   background-color: white;
   border-radius: var(--radius-size-small);
+}
+
+.user__logOut:hover *{
+  opacity: 0.6;
 }
 
 .user__logOut-close {
