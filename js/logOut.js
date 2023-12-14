@@ -3,7 +3,7 @@ import {
   getAuth,
   signOut,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import {firebaseConfig} from '/js/firebaseConfig.js'
+import { firebaseConfig } from "/js/firebaseConfig.js";
 
 initializeApp(firebaseConfig);
 const auth = getAuth();

@@ -5,28 +5,28 @@ import {
   GithubAuthProvider,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import {firebaseConfig} from '/js/firebaseConfig.js'
+import { firebaseConfig } from "/js/firebaseConfig.js";
 
 initializeApp(firebaseConfig);
 const auth = getAuth();
-const redirectedPage = '/login.html'
+const redirectedPage = "/login.html";
 
 function checkAuthState() {
   onAuthStateChanged(auth, () => {
     if (auth.currentUser) {
-      window.location.href = redirectedPage
+      window.location.href = redirectedPage;
     }
   });
 }
 
-checkAuthState()
+checkAuthState();
 
 const provider = new GithubAuthProvider();
 
 function signInWithGitHub() {
   signInWithPopup(auth, provider)
     .then(() => {
-      window.location.href = redirectedPage
+      window.location.href = redirectedPage;
       GitHubBtn.removeEventListener("click", signInWithGitHub);
     })
     .catch((error) => {
