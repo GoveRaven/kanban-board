@@ -11,15 +11,11 @@ initializeApp(firebaseConfig);
 const auth = getAuth();
 const redirectedPage = "/login.html";
 
-function checkAuthState() {
-  onAuthStateChanged(auth, () => {
-    if (auth.currentUser) {
-      window.location.href = redirectedPage;
-    }
-  });
-}
-
-checkAuthState();
+onAuthStateChanged(auth, () => {
+  if (auth.currentUser) {
+    window.location.href = redirectedPage;
+  }
+});
 
 const provider = new GithubAuthProvider();
 
