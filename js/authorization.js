@@ -1,5 +1,3 @@
-const GitHubBtn = document.querySelector(".main__signInBtn");
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import {
   getAuth,
@@ -8,7 +6,9 @@ import {
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 
-// Your web app's Firebase configuration
+const GitHubBtn = document.querySelector(".main__signInBtn");
+const redirectedPage = '/login.html'
+
 const firebaseConfig = {
   apiKey: "AIzaSyAa9OouRtZHvVLcNSgevSrKkkRZB0HNXQ8",
   authDomain: "kanban-board-78a77.firebaseapp.com",
@@ -18,34 +18,31 @@ const firebaseConfig = {
   appId: "1:984975750309:web:2ac04561609aa95bc7894c",
 };
 
-// Initialize Firebase
 initializeApp(firebaseConfig);
 const auth = getAuth();
 
-checkState()
-
-//Проверка авторизации пользователя
-function checkState() {
+function checkAuthState() {
   onAuthStateChanged(auth, () => {
     if (auth.currentUser) {
-      window.location.href = '/login.html'
-
+      window.location.href = redirectedPage
     }
   });
 }
 
-// Вход в систему с помощью всплывающего окна
-const provider = new GithubAuthProvider();
+checkAuthState()
 
-GitHubBtn.addEventListener("click", signInWithGitHub);
+const provider = new GithubAuthProvider();
 
 function signInWithGitHub() {
   signInWithPopup(auth, provider)
     .then(() => {
-      window.location.href = '/login.html'
+      window.location.href = redirectedPage
+      GitHubBtn.removeEventListener("click", signInWithGitHub);
     })
     .catch((error) => {
       const errorCode = error.code;
-      console.log(errorCode);
+      console.error(errorCode);
     });
 }
+
+GitHubBtn.addEventListener("click", signInWithGitHub);
