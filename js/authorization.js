@@ -5,21 +5,11 @@ import {
   GithubAuthProvider,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-
-const GitHubBtn = document.querySelector(".main__signInBtn");
-const redirectedPage = '/login.html'
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAa9OouRtZHvVLcNSgevSrKkkRZB0HNXQ8",
-  authDomain: "kanban-board-78a77.firebaseapp.com",
-  projectId: "kanban-board-78a77",
-  storageBucket: "kanban-board-78a77.appspot.com",
-  messagingSenderId: "984975750309",
-  appId: "1:984975750309:web:2ac04561609aa95bc7894c",
-};
+import {firebaseConfig} from '/js/firebaseConfig.js'
 
 initializeApp(firebaseConfig);
 const auth = getAuth();
+const redirectedPage = '/login.html'
 
 function checkAuthState() {
   onAuthStateChanged(auth, () => {
@@ -45,4 +35,5 @@ function signInWithGitHub() {
     });
 }
 
+const GitHubBtn = document.querySelector(".main__signInBtn");
 GitHubBtn.addEventListener("click", signInWithGitHub);
