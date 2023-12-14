@@ -1,4 +1,3 @@
-const logOutBtn = document.querySelector(".user__logOut");
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import {
@@ -15,14 +14,15 @@ const firebaseConfig = {
   appId: "1:984975750309:web:2ac04561609aa95bc7894c",
 };
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+const logOutBtn = document.querySelector(".user__logOut");
 
-console.log(auth.config);
+initializeApp(firebaseConfig);
+const auth = getAuth();
 
 logOutBtn.addEventListener("click", singOutGitHub);
 
 function singOutGitHub() {
   signOut(auth);
+  logOutBtn.removeEventListener("click", singOutGitHub);
   window.location.href = "/index.html";
 }
