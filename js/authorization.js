@@ -1,28 +1,15 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
 import {
-  getAuth,
-  onAuthStateChanged,
   GithubAuthProvider,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import { firebaseConfig } from "/js/firebaseConfig.js";
-
-initializeApp(firebaseConfig);
-const auth = getAuth();
-const redirectedPage = "/login.html";
-
-onAuthStateChanged(auth, () => {
-  if (auth.currentUser) {
-    window.location.href = redirectedPage;
-  }
-});
+import { auth } from "/js/firebaseConfig.js";
 
 const provider = new GithubAuthProvider();
 
 function signInWithGitHub() {
   signInWithPopup(auth, provider)
     .then(() => {
-      window.location.href = redirectedPage;
+      window.location.href = "/login.html";
       GitHubBtn.removeEventListener("click", signInWithGitHub);
     })
     .catch((error) => {
