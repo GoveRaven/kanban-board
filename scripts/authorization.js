@@ -12,7 +12,6 @@ function signInWithGitHub() {
     .then(() => {
       redirectToLoginPage();
       GitHubBtn.removeEventListener("click", signInWithGitHub);
-      console.log(auth);
     })
     .catch((error) => {
       const errorCode = error.code;
