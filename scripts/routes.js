@@ -13,6 +13,7 @@ onAuthStateChanged(auth, () => {
   ) {
     redirectToLoginPage();
   }
+  setTimeout(removeLoader, 1000)
 });
 
 function redirectToMainPage() {
@@ -21,6 +22,12 @@ function redirectToMainPage() {
 
 function redirectToLoginPage() {
   window.location.href = hrefOfLoginPage;
+}
+
+const loader = document.querySelector('.loader')
+
+function removeLoader() {
+  loader.remove()
 }
 
 export {
