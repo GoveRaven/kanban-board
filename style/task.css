@@ -60,6 +60,10 @@
   border-color: var(--trashCan-color);
 }
 
+.trashCan__btn {
+  font-weight: var(--font-bold);
+}
+
 .task_no-tasks {
   background-color: initial;
   border: 2px dashed var(--noTasks-color);
