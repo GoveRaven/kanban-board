@@ -2,8 +2,8 @@ import { auth } from "./firebaseConfig.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 import { removeLoader } from "./removeLoader.js";
 
-const hrefOfMainPage = "/index.html";
-const hrefOfLoginPage = "/login.html";
+const hrefOfMainPage = "./index.html";
+const hrefOfLoginPage = "./login.html";
 
 onAuthStateChanged(auth, () => {
   if (!auth.currentUser && window.location.href.includes(hrefOfLoginPage)) {
