@@ -16,5 +16,5 @@ const logOut = document.querySelector(".user__logOut");
 
 user.addEventListener("click", () => {
   logOut.classList.toggle("user__logOut-close");
-  logOutBtn.classList.toggle('user__logOutBtn-open')
+  logOutBtn.classList.toggle("user__logOutBtn-open");
 });

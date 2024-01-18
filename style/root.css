@@ -11,7 +11,7 @@
   --disabledBtn-color: #d8d8d8;
   --newTaskName-color: #cecece;
   --radius-size-small: 6px;
-  --radius-size-editing: 4px
+  --radius-size-editing: 4px;
 }
 
 body {
@@ -33,5 +33,5 @@ main {
   width: 100%;
   height: 100%;
   text-align: center;
-  background-color: rgba(255, 255, 255);
+  background-color: white;
 }
