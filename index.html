@@ -14,12 +14,15 @@
       rel="stylesheet"
     />
     <script src="custom-elements/header.js"></script>
+    <script src="custom-elements/loader.js"></script>
   </head>
   <body>
-    <template-header></template-header>
+    <template-header data-user-info="hide"></template-header>
     <main class="main">
       <h1 class="main__title">Авторизация</h1>
       <button class="main__signInBtn"><img src="img/github-icon.svg" alt="иконка Гитхаба"><span>Sign in with GitHub</span></button>
     </main>
+    <template-loader></template-loader>
+    <script src="scripts/authorization.js" type="module"></script>
   </body>
 </html>

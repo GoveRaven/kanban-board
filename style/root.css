@@ -11,7 +11,7 @@
   --disabledBtn-color: #d8d8d8;
   --newTaskName-color: #cecece;
   --radius-size-small: 6px;
-  --radius-size-editing: 4px
+  --radius-size-editing: 4px;
 }
 
 body {
@@ -26,4 +26,14 @@ main {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  background-color: white;
 }

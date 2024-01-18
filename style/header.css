@@ -17,6 +17,14 @@
   align-items: center;
   position: relative;
   gap: 8px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.user__avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
 }
 
 .user__logOutBtn-open {
@@ -34,6 +42,7 @@
   color: var(--red-color);
   background-color: white;
   border-radius: var(--radius-size-small);
+  cursor: pointer;
 }
 
 .user__logOut:hover *{
