@@ -2,8 +2,8 @@ import {
   GithubAuthProvider,
   signInWithPopup,
 } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import { auth } from "/scripts/firebaseConfig.js";
-import { onAuthStateChanged, redirectToLoginPage } from "/scripts/routes.js";
+import { auth } from "./firebaseConfig.js";
+import { onAuthStateChanged, redirectToLoginPage } from "./routes.js";
 
 const provider = new GithubAuthProvider();
 

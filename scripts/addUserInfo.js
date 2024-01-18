@@ -1,4 +1,4 @@
-import { auth } from "/scripts/firebaseConfig.js";
+import { auth } from "./firebaseConfig.js";
 
 const user = document.querySelector(".header__user");
 const userName = user.querySelector(".user__name");

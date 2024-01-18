@@ -1,6 +1,6 @@
 import { signOut } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import { auth } from "/scripts/firebaseConfig.js";
-import { redirectToMainPage, onAuthStateChanged } from "/scripts/routes.js";
+import { auth } from "./firebaseConfig.js";
+import { redirectToMainPage, onAuthStateChanged } from "./routes.js";
 
 function singOutGitHub() {
   signOut(auth);

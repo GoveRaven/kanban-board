@@ -1,6 +1,6 @@
-import { auth } from "/scripts/firebaseConfig.js";
+import { auth } from "./firebaseConfig.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
-import { removeLoader } from "/scripts/removeLoader.js";
+import { removeLoader } from "./removeLoader.js";
 
 const hrefOfMainPage = "/index.html";
 const hrefOfLoginPage = "/login.html";
@@ -14,7 +14,7 @@ onAuthStateChanged(auth, () => {
   ) {
     redirectToLoginPage();
   }
-  setTimeout(removeLoader, 1000)
+  setTimeout(removeLoader, 1000);
 });
 
 function redirectToMainPage() {
