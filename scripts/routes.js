@@ -6,11 +6,11 @@ const hrefOfMainPage = "./index.html";
 const hrefOfLoginPage = "./login.html";
 
 onAuthStateChanged(auth, () => {
-  if (!auth.currentUser && window.location.href.includes(hrefOfLoginPage)) {
+  if (!auth.currentUser && window.location.href.includes('/login.html')) {
     redirectToMainPage();
   } else if (
     auth.currentUser &&
-    window.location.href.includes(hrefOfMainPage)
+    window.location.href.includes('/index.html')
   ) {
     redirectToLoginPage();
   }

@@ -16,8 +16,10 @@
   display: flex;
   align-items: center;
   position: relative;
-  gap: 8px;
+  gap: 16px;
   cursor: pointer;
+  font-size: 28px;
+  font-weight: var(--font-bold);
   flex-shrink: 0;
 }
 
