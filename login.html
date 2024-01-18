@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Канбан-доска</title>
-    <link rel="stylesheet" href="style/root.css">
+    <link rel="stylesheet" href="style/root.css" />
     <link rel="stylesheet" href="style/reset.css" />
     <link rel="stylesheet" href="style/login.css" />
     <link rel="stylesheet" href="style/header.css" />
@@ -16,6 +16,7 @@
     />
     <script src="custom-elements/header.js"></script>
     <script src="custom-elements/tasks.js"></script>
+    <script src="custom-elements/loader.js"></script>
   </head>
   <body>
     <template-header></template-header>
@@ -36,8 +37,7 @@
       <div class="main__tasks">
         <div class="tasks__wrapper tasks_backlog">
           <div class="tasks__title tasks__title_backlog">Бэклог</div>
-          <div class="tasks__list">
-          </div>
+          <div class="tasks__list"></div>
         </div>
         <div class="tasks__wrapper tasks_inProgress">
           <div class="tasks__title tasks__title_inProgress">В процессе</div>
@@ -56,9 +56,7 @@
         </div>
       </div>
     </main>
-    <div class="loader">
-      <img src="img/bouncing-circles.svg" alt="загрузка">
-    </div>
+    <template-loader></template-loader>
     <script src="scripts/logOut.js" type="module"></script>
     <script src="scripts/addUserInfo.js" type="module"></script>
   </body>
