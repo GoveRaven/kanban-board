@@ -1,5 +1,6 @@
 import { auth } from "/scripts/firebaseConfig.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
+import { removeLoader } from "/scripts/removeLoader.js";
 
 const hrefOfMainPage = "/index.html";
 const hrefOfLoginPage = "/login.html";
@@ -22,12 +23,6 @@ function redirectToMainPage() {
 
 function redirectToLoginPage() {
   window.location.href = hrefOfLoginPage;
-}
-
-const loader = document.querySelector('.loader')
-
-function removeLoader() {
-  loader.remove()
 }
 
 export {
