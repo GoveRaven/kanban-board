@@ -1,7 +1,7 @@
-const loader = document.querySelector('.loader')
+const loader = document.querySelector(".loader");
 
 function removeLoader() {
-  loader.remove()
+  loader.remove();
 }
 
-export {removeLoader}
+export { removeLoader };
