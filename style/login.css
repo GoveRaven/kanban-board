@@ -23,7 +23,7 @@
   font-size: 28px;
 }
 
-.new-task__wrapper {
+.new-task__form {
   display: flex;
   gap: 16px;
 }
