@@ -5,7 +5,7 @@ class TasksTemplate extends HTMLElement {
 
   connectedCallback() {
     this.innerHTML = `
-    <span class="task__text"></span>
+    <span class="task__text" tabindex="0"></span>
     <svg
       width="18"
       height="17"
