@@ -14,7 +14,9 @@
   border-width: 0 0 0 6px;
   border-style: solid;
   font-weight: var(--font-bold);
+  cursor: pointer;
 }
+
 
 .main__tasks {
   font-weight: var(--font-bold);
@@ -25,19 +27,26 @@
 }
 
 .task__icon {
+  width: 16px;
+  height: 16px;
   stroke: black;
   padding: 6px;
   box-sizing: content-box;
   visibility: hidden;
+  flex-shrink: 0;
 }
 
 .task:hover .task__icon {
   visibility: visible;
 }
 
+.task__text {
+  outline: none;
+}
+
 .task_editing .task__text {
   flex-grow: 1;
-  border: 1px solid var(--editing-color);
+  outline: 1px solid var(--editing-color);
   border-radius: var(--radius-size-editing);
 }
 
@@ -48,19 +57,19 @@
   visibility: visible;
 }
 
-.task_backlog {
+.tasks__list_backlog .task{
   border-color: var(--backlog-color);
 }
 
-.task_inProgress {
+.tasks__list_inProgress .task{
   border-color: var(--inProgress-color);
 }
 
-.task_ready {
+.tasks__list_ready .task{
   border-color: var(--ready-color);
 }
 
-.task_trashCan {
+.tasks__list_trashCan .task{
   border-color: var(--trashCan-color);
 }
 
