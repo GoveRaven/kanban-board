@@ -1,35 +1,37 @@
-const tasksLists = document.querySelectorAll(".tasks__list");
+import { tasksLists } from "./routes.js";
 
-function endEditTask(task) {
+function endEditTask(task, text) {
   task.classList.remove("task_editing");
-  task.removeAttribute("contenteditable");
+  text.removeAttribute("contenteditable");
   window.removeEventListener("keydown", endEditTaskWithKeyDown);
   window.removeEventListener("click", endEditTaskWithClick);
 }
 
-function endEditTaskWithKeyDown(event, task) {
+function endEditTaskWithKeyDown(event, task, text) {
   if (event.key === "Enter" || event.key === "Escape") {
     event.preventDefault();
-    endEditTask(task);
+    endEditTask(task, text);
   }
 }
 
-function endEditTaskWithClick(event, task) {
+function endEditTaskWithClick(event, task, text) {
   if (!event.target.closest(".task")) {
-    endEditTask(task);
+    endEditTask(task, text);
   }
 }
 
 function editTask(event) {
   if (!event.target.classList.contains("task__icon")) return;
   const task = event.target.closest(".task");
+  const text = task.querySelector(".task__text");
   task.classList.add("task_editing");
-  task.setAttribute("contenteditable", "true");
+  text.setAttribute("contenteditable", "true");
+  text.focus();
   window.addEventListener("click", (event) =>
-    endEditTaskWithClick(event, task)
+    endEditTaskWithClick(event, task, text)
   );
   window.addEventListener("keydown", (event) =>
-    endEditTaskWithKeyDown(event, task)
+    endEditTaskWithKeyDown(event, task, text)
   );
 }
 
