@@ -77,6 +77,7 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
+  flex-grow: 1;
 }
 
 .tasks__wrapper {
@@ -123,6 +124,7 @@
   flex-direction: column;
   gap: 8px;
   margin-bottom: 8px;
+  flex-grow: 1;
 }
 
 .trashCan__btn {
