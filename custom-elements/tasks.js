@@ -4,6 +4,7 @@ class TasksTemplate extends HTMLElement {
   }
 
   connectedCallback() {
+    this.draggable = "true"
     this.innerHTML = `
     <span class="task__text" tabindex="0"></span>
     <svg
