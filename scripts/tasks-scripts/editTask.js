@@ -1,25 +1,25 @@
 import { tasks } from "./routes.js";
 
-function endEditTask(task, text) {
+function endEditTask(task, taskText) {
   task.classList.remove("task_editing");
-  text.removeAttribute("contenteditable");
+  taskText.removeAttribute("contenteditable");
 }
 
-function endEditTaskWithKeyDown(event, task, text) {
+function endEditTaskWithKeyDown(event, task, taskText) {
   if (["Enter", "Escape"].includes(event.key)) {
     event.preventDefault();
-    endEditTask(task, text);
+    endEditTask(task, taskText);
     window.removeEventListener("keydown", (event) =>
-      endEditTaskWithKeyDown(event, task, text)
+      endEditTaskWithKeyDown(event, task, taskText)
     );
   }
 }
 
-function endEditTaskWithClick(event, task, text) {
+function endEditTaskWithClick(event, task, taskText) {
   if (!event.target.closest(".task")) {
-    endEditTask(task, text);
+    endEditTask(task, taskText);
     window.removeEventListener("click", (event) =>
-      endEditTaskWithClick(event, task, text)
+      endEditTaskWithClick(event, task, taskText)
     );
   }
 }
@@ -29,15 +29,15 @@ function editTask(event, task) {
   if (smthIsEditing) {
     smthIsEditing.classList.remove("task_editing");
   }
-  const text = task.querySelector(".task__text");
+  const taskText = task.querySelector(".task__text");
   task.classList.add("task_editing");
-  text.setAttribute("contenteditable", "true");
-  text.focus();
+  taskText.setAttribute("contenteditable", "true");
+  taskText.focus();
   window.addEventListener("click", (event) =>
-    endEditTaskWithClick(event, task, text)
+    endEditTaskWithClick(event, task, taskText)
   );
   window.addEventListener("keydown", (event) =>
-    endEditTaskWithKeyDown(event, task, text)
+    endEditTaskWithKeyDown(event, task, taskText)
   );
 }
 
