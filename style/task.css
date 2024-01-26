@@ -8,7 +8,7 @@
   gap: 10px;
   background-color: white;
   outline: none;
-  white-space: pre-wrap; 
+  white-space: pre-wrap;
   word-break: break-word;
   border-radius: var(--radius-size-small);
   border-width: 0 0 0 6px;
@@ -16,7 +16,6 @@
   font-weight: var(--font-bold);
   cursor: pointer;
 }
-
 
 .main__tasks {
   font-weight: var(--font-bold);
@@ -57,19 +56,19 @@
   visibility: visible;
 }
 
-.tasks__list_backlog .task{
+.tasks__list_backlog .task {
   border-color: var(--backlog-color);
 }
 
-.tasks__list_inProgress .task{
+.tasks__list_inProgress .task {
   border-color: var(--inProgress-color);
 }
 
-.tasks__list_ready .task{
+.tasks__list_ready .task {
   border-color: var(--ready-color);
 }
 
-.tasks__list_trashCan .task{
+.tasks__list_trashCan .task {
   border-color: var(--trashCan-color);
 }
 
