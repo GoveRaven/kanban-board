@@ -1,5 +1,4 @@
-import { tasksLists } from "./routes.js";
-const tasks = document.querySelectorAll(".task");
+import { tasksLists, tasks } from "./routes.js";
 
 tasksLists.forEach((list) => {
   list.addEventListener("dragover", (event) => dragover(event));
