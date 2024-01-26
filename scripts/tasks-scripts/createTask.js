@@ -1,5 +1,5 @@
-import { drag, drop} from "./dragAndDrop.js";
-import {editTask} from './editTask.js'
+import { drag, drop } from "./dragAndDrop.js";
+import { editTask } from "./editTask.js";
 
 const taskForm = document.querySelector(".new-task__form");
 const taskName = taskForm.querySelector(".new-task__name");
@@ -12,7 +12,6 @@ function createTask(event) {
   task.classList.add("task");
   const text = task.querySelector(".task__text");
   text.textContent = taskName.value;
-  task.draggable = "true";
   task.addEventListener("dragstart", () => drag(task));
   task.addEventListener("dragend", () => drop(task));
   task.addEventListener("click", (event) => editTask(event, task));
