@@ -1,4 +1,4 @@
-import { tasks } from "./routes.js";
+import { tasks } from "./consts.js";
 
 function endEditTask(task, taskText) {
   task.classList.remove("task_editing");

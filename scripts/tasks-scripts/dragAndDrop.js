@@ -1,4 +1,4 @@
-import { tasksLists, tasks } from "./routes.js";
+import { tasksLists, tasks } from "./consts.js";
 
 tasksLists.forEach((list) => {
   list.addEventListener("dragover", dragover);
