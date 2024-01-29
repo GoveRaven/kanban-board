@@ -39,19 +39,27 @@
         <div class="tasks__wrapper tasks_backlog">
           <div class="tasks__title tasks__title_backlog">Бэклог</div>
           <div class="tasks__list tasks__list_backlog">
+            <template-task class="task" draggable="true"></template-task>
+            <template-task class="task" draggable="true"></template-task>
           </div>
         </div>
-        <div class="tasks__wrapper tasks_inProgress">
-          <div class="tasks__title tasks__title_inProgress">В процессе</div>
-          <div class="tasks__list tasks__list_inProgress"></div>
+        <div class="tasks__wrapper tasks_in-progress">
+          <div class="tasks__title tasks__title_in-progress">В процессе</div>
+          <div class="tasks__list tasks__list_in-progress">
+            <template-task class="task" draggable="true"></template-task>
+          </div>
         </div>
         <div class="tasks__wrapper tasks_ready">
           <div class="tasks__title tasks__title_ready">Готово</div>
-          <div class="tasks__list tasks__list_ready"></div>
+          <div class="tasks__list tasks__list_ready">
+            <template-task class="task" draggable="true"></template-task>
+          </div>
         </div>
         <div class="tasks__wrapper tasks_trashCan">
           <div class="tasks__title tasks__title_trashCan">Корзина</div>
-          <div class="tasks__list tasks__list_trashCan"></div>
+          <div class="tasks__list tasks__list_trashCan">
+            <template-task class="task" draggable="true"></template-task>
+          </div>
           <button class="trashCan__btn">
             <img src="img/cross.svg" alt="иконка креста" />Очистить
           </button>
@@ -61,7 +69,8 @@
     <template-loader></template-loader>
     <script src="scripts/logOut.js" type="module"></script>
     <script src="scripts/addUserInfo.js" type="module"></script>
-    <script src="scripts/tasks-scripts/editTask.js"></script>
-    <script src="scripts/tasks-scripts/createTask.js"></script>
+    <script src="scripts/tasks-scripts/editTask.js" type="module"></script>
+    <script src="scripts/tasks-scripts/createTask.js" type="module"></script>
+    <script src="scripts/tasks-scripts/dragAndDrop.js" type="module"></script>
   </body>
 </html>

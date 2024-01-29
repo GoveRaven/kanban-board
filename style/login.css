@@ -104,9 +104,9 @@
   background-color: var(--backlog-color);
 }
 
-.tasks__title_inProgress {
+.tasks__title_in-progress {
   color: #4070be;
-  background-color: var(--inProgress-color);
+  background-color: var(--in-progress-color);
 }
 
 .tasks__title_ready {

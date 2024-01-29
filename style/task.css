@@ -60,8 +60,8 @@
   border-color: var(--backlog-color);
 }
 
-.tasks__list_inProgress .task {
-  border-color: var(--inProgress-color);
+.tasks__list_in-progress .task {
+  border-color: var(--in-progress-color);
 }
 
 .tasks__list_ready .task {
