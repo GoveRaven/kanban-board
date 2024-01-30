@@ -68,11 +68,11 @@
   border-color: var(--ready-color);
 }
 
-.tasks__list_trashCan .task {
-  border-color: var(--trashCan-color);
+.tasks__list_trash-can .task {
+  border-color: var(--trash-can-color);
 }
 
-.trashCan__btn {
+.trash-can__btn {
   font-weight: var(--font-bold);
 }
 
