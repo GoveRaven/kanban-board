@@ -1,9 +1,5 @@
 import { tasksLists, tasks } from "./consts.js";
 
-tasksLists.forEach((list) => {
-  list.addEventListener("dragover", dragover);
-});
-
 function drag(task) {
   task.classList.add("task_dragndrop");
 }
@@ -22,12 +18,16 @@ function dragover(event) {
   const currentTask = event.target;
   const selectedTask = document.querySelector(".task_dragndrop");
   const text = selectedTask.innerHTML;
-  const nextElement = getNextElement(event.clientY, currentTask)
+  const nextElement = getNextElement(event.clientY, currentTask);
   if (currentTask.classList.contains("task")) {
     list.insertBefore(selectedTask, nextElement);
     selectedTask.innerHTML = text;
   }
 }
+
+tasksLists.forEach((list) => {
+  list.addEventListener("dragover", dragover);
+});
 
 function getNextElement(cursorPosition, currentElement) {
   const currentElementCoord = currentElement.getBoundingClientRect();
