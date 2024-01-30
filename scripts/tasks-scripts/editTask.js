@@ -24,6 +24,15 @@ function endEditTaskWithClick(event, task, taskText) {
   }
 }
 
+function setSelection(text) {
+  if (!text) return
+  const range = new Range()
+  range.setStart(text, text.length)
+  const sel = window.getSelection()
+  sel.removeAllRanges()
+  sel.addRange(range)
+}
+
 function editTask(event, task) {
   const smthIsEditing = document.querySelector(".task_editing");
   if (smthIsEditing) {
@@ -33,6 +42,7 @@ function editTask(event, task) {
   task.classList.add("task_editing");
   taskText.setAttribute("contenteditable", "true");
   taskText.focus();
+  setSelection(taskText.firstChild)
   window.addEventListener("click", (event) =>
     endEditTaskWithClick(event, task, taskText)
   );
