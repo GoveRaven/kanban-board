@@ -1,11 +1,14 @@
 import { tasksLists, tasks } from "./consts.js";
+import { checkNoTask } from "./createEmptyTask.js";
 
 function drag(task) {
   task.classList.add("task_dragndrop");
+  setTimeout(() => task.classList.add("task_dragging"), 0);
 }
 
 function drop(task) {
   task.classList.remove("task_dragndrop");
+  task.classList.remove("task_dragging");
 }
 
 tasks.forEach((task) => {
@@ -23,6 +26,7 @@ function dragover(event) {
     list.insertBefore(selectedTask, nextElement);
     selectedTask.innerHTML = text;
   }
+  tasksLists.forEach((list) => checkNoTask(list));
 }
 
 tasksLists.forEach((list) => {
