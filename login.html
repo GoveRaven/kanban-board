@@ -38,28 +38,31 @@
       <div class="main__tasks">
         <div class="tasks__wrapper tasks_backlog">
           <div class="tasks__title tasks__title_backlog">Бэклог</div>
-          <div class="tasks__list tasks__list_backlog">
-            <template-task class="task" draggable="true"></template-task>
-            <template-task class="task" draggable="true"></template-task>
-          </div>
+          <div
+            class="tasks__list tasks__list_backlog"
+            data-empty-notif="Добавьте задачу выше"
+          ></div>
         </div>
         <div class="tasks__wrapper tasks_in-progress">
           <div class="tasks__title tasks__title_in-progress">В процессе</div>
-          <div class="tasks__list tasks__list_in-progress">
-            <template-task class="task" draggable="true"></template-task>
-          </div>
+          <div
+            class="tasks__list tasks__list_in-progress"
+            data-empty-notif="Нет задач в процессе"
+          ></div>
         </div>
         <div class="tasks__wrapper tasks_ready">
           <div class="tasks__title tasks__title_ready">Готово</div>
-          <div class="tasks__list tasks__list_ready">
-            <template-task class="task" draggable="true"></template-task>
-          </div>
+          <div
+            class="tasks__list tasks__list_ready"
+            data-empty-notif="Нет готовых задач"
+          ></div>
         </div>
         <div class="tasks__wrapper tasks_trash-can">
           <div class="tasks__title tasks__title_trash-can">Корзина</div>
-          <div class="tasks__list tasks__list_trash-can">
-            <template-task class="task" draggable="true"></template-task>
-          </div>
+          <div
+            class="tasks__list tasks__list_trash-can"
+            data-empty-notif="Корзина пуста"
+          ></div>
           <button class="trash-can__btn">
             <img src="img/cross.svg" alt="иконка креста" />Очистить
           </button>
@@ -72,5 +75,9 @@
     <script src="scripts/tasks-scripts/editTask.js" type="module"></script>
     <script src="scripts/tasks-scripts/createTask.js" type="module"></script>
     <script src="scripts/tasks-scripts/dragAndDrop.js" type="module"></script>
+    <script
+      src="scripts/tasks-scripts/createEmptyTask.js"
+      type="module"
+    ></script>
   </body>
 </html>
