@@ -1,5 +1,6 @@
 import { tasksLists, tasks } from "./consts.js";
 import { checkNoTask } from "./createEmptyTask.js";
+import { disabledBtn } from "./emptyThashCan.js";
 
 function drag(task) {
   task.classList.add("task_dragndrop");
@@ -9,6 +10,7 @@ function drag(task) {
 function drop(task) {
   task.classList.remove("task_dragndrop");
   task.classList.remove("task_dragging");
+  disabledBtn()
 }
 
 tasks.forEach((task) => {
