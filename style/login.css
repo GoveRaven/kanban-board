@@ -124,7 +124,6 @@
   flex-direction: column;
   gap: 8px;
   margin-bottom: 8px;
-  flex-grow: 1;
 }
 
 .trash-can__btn {
