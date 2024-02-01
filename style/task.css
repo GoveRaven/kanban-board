@@ -76,7 +76,9 @@
   font-weight: var(--font-bold);
 }
 
-.task_no-tasks {
+.task_no-tasks.task,
+.task_dragging.task {
+  min-height: 68px;
   background-color: initial;
   border: 2px dashed var(--noTasks-color);
   color: var(--noTasks-color);
