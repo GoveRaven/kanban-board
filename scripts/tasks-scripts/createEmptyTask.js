@@ -1,16 +1,4 @@
-import { tasksLists} from "./consts.js";
-
-function checkNoTask() {
-  tasksLists.forEach((list) => {
-    const regularTasks = list.querySelector(".task:not([data-empty])");
-    if (!list.contains(regularTasks) && list.childElementCount === 0) {
-      addEmptyTask(list);
-    } else if (list.contains(regularTasks)) {
-      removeEmptyTask(list);
-    }
-  });
-}
-
+import { tasksLists } from "./consts.js";
 
 function addEmptyTask(list) {
   const noTask = document.createElement("template-task");
@@ -23,9 +11,20 @@ function addEmptyTask(list) {
 
 function removeEmptyTask(list) {
   const noTask = list.querySelector(".task_no-tasks");
-  if (noTask) noTask.remove();
+  noTask?.remove();
 }
 
-checkNoTask();
+function checkEmptyTask() {
+  tasksLists.forEach((list) => {
+    const regularTasks = list.querySelector(".task:not([data-empty])");
+    if (list.childElementCount === 0) {
+      addEmptyTask(list);
+    } else if (list.contains(regularTasks)) {
+      removeEmptyTask(list);
+    }
+  });
+}
 
-export { checkNoTask };
+checkEmptyTask();
+
+export { checkEmptyTask };
