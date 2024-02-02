@@ -1,25 +1,25 @@
-import { checkNoTask } from "./createEmptyTask.js";
+import { checkEmptyTask } from "./createEmptyTask.js";
+
 const trashCanBtn = document.querySelector(".trash-can__btn");
 const trashCanList = document.querySelector(".tasks__list_trash-can");
 
 function emptyTrashCan() {
   trashCanList.innerHTML = "";
-  checkNoTask();
-  disabledBtn()
+  checkEmptyTask();
+  disableButton();
 }
 
 trashCanBtn.addEventListener("click", emptyTrashCan);
 
-function disabledBtn() {
+function disableButton() {
   const regularTasks = trashCanList.querySelector(".task:not([data-empty])");
-  console.log(trashCanList.contains(regularTasks))
-  if (trashCanList.contains(regularTasks)) {
-    trashCanBtn.removeAttribute('disabled')
+  if (regularTasks) {
+    trashCanBtn.removeAttribute("disabled");
   } else {
-    trashCanBtn.setAttribute('disabled', 'true')
+    trashCanBtn.setAttribute("disabled", "true");
   }
 }
 
-disabledBtn();
+disableButton();
 
-export { disabledBtn };
+export { disableButton };
