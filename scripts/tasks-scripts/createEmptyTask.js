@@ -14,17 +14,16 @@ function removeEmptyTask(list) {
   noTask?.remove();
 }
 
-function checkEmptyTask() {
-  tasksLists.forEach((list) => {
-    const regularTasks = list.querySelector(".task:not([data-empty])");
-    if (list.childElementCount === 0) {
-      addEmptyTask(list);
-    } else if (list.contains(regularTasks)) {
-      removeEmptyTask(list);
-    }
-  });
+function checkEmptyTask(list) {
+  const regularTasks = list.querySelector(".task:not([data-empty])");
+  if (list.childElementCount === 0) {
+    addEmptyTask(list);
+  } else if (regularTasks) {
+    removeEmptyTask(list);
+  }
 }
 
-checkEmptyTask();
+tasksLists.forEach((list) => checkEmptyTask(list));
+
 
 export { checkEmptyTask };

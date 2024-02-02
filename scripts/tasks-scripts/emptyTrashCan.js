@@ -5,7 +5,7 @@ const trashCanList = document.querySelector(".tasks__list_trash-can");
 
 function emptyTrashCan() {
   trashCanList.innerHTML = "";
-  checkEmptyTask();
+  checkEmptyTask(trashCanList);
   disableButton();
 }
 
