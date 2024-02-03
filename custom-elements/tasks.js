@@ -4,12 +4,12 @@ class TasksTemplate extends HTMLElement {
   }
 
   connectedCallback() {
-    const empty = this.dataset.empty
-    this.draggable = !empty;
+    const isEmpty = this.dataset.empty === 'true'
+    this.draggable = !isEmpty;
     this.innerHTML = `
     <span class="task__text" tabindex="0"></span>
     ${
-      empty !== "true"
+      isEmpty !== "true"
         ? `    <svg
     width="18"
     height="17"
