@@ -20,6 +20,4 @@ function disableButton() {
   }
 }
 
-disableButton();
-
 export { disableButton };
