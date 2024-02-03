@@ -6,7 +6,7 @@ function addEmptyTask(list) {
   noTask.classList.add("task", "task_no-tasks");
   list.append(noTask);
   const text = noTask.querySelector(".task__text");
-  text.textContent = list.dataset.emptyNotif;
+  text.textContent = list.dataset.emptyNotification;
 }
 
 function removeEmptyTask(list) {
@@ -24,6 +24,5 @@ function checkEmptyTask(list) {
 }
 
 tasksLists.forEach((list) => checkEmptyTask(list));
-
 
 export { checkEmptyTask };
