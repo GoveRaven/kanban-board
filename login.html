@@ -41,28 +41,56 @@
           <div
             class="tasks__list tasks__list_backlog"
             data-empty-title="Добавьте задачу выше"
-          ></div>
+          >
+            <template-task
+              data-empty="true"
+              class="task task_no-tasks"
+              draggable="false"
+            >
+            </template-task>
+          </div>
         </div>
         <div class="tasks__wrapper tasks_in-progress">
           <div class="tasks__title tasks__title_in-progress">В процессе</div>
           <div
             class="tasks__list tasks__list_in-progress"
             data-empty-title="Нет задач в процессе"
-          ></div>
+          >
+            <template-task
+              data-empty="true"
+              class="task task_no-tasks"
+              draggable="false"
+            >
+            </template-task>
+          </div>
         </div>
         <div class="tasks__wrapper tasks_ready">
           <div class="tasks__title tasks__title_ready">Готово</div>
           <div
             class="tasks__list tasks__list_ready"
             data-empty-title="Нет готовых задач"
-          ></div>
+          >
+            <template-task
+              data-empty="true"
+              class="task task_no-tasks"
+              draggable="false"
+            >
+            </template-task>
+          </div>
         </div>
         <div class="tasks__wrapper tasks_trash-can">
           <div class="tasks__title tasks__title_trash-can">Корзина</div>
           <div
             class="tasks__list tasks__list_trash-can"
             data-empty-title="Корзина пуста"
-          ></div>
+          >
+            <template-task
+              data-empty="true"
+              class="task task_no-tasks"
+              draggable="false"
+            >
+            </template-task>
+          </div>
           <button class="trash-can__btn" disabled>
             <img src="img/cross.svg" alt="иконка креста" />Очистить
           </button>
