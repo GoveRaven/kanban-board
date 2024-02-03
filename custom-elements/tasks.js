@@ -4,12 +4,12 @@ class TasksTemplate extends HTMLElement {
   }
 
   connectedCallback() {
-    const isEmpty = this.dataset.empty === 'true'
+    const isEmpty = this.dataset.empty === "true";
     this.draggable = !isEmpty;
     this.innerHTML = `
     <span class="task__text" tabindex="0"></span>
     ${
-      isEmpty !== "true"
+      isEmpty
         ? `    <svg
     width="18"
     height="17"
@@ -22,7 +22,7 @@ class TasksTemplate extends HTMLElement {
       d="M3.156 10.563L1 16.0176L6.74957 14.8753M3.156 10.563L6.74957 14.8753M3.156 10.563L11.7806 1.93845M6.74957 14.8753L16.0929 6.25074M11.7806 1.93845L16.0929 6.25074M11.7806 1.93845C12.1448 1.57425 14.6556 0.205922 16.0929 1.64329C17.5301 3.08065 17.0511 5.29246 16.0929 6.25074"
     />
   </svg>`
-        : ''
+        : ""
     }
   `;
   }
