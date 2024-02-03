@@ -28,9 +28,9 @@ function setSelection(text) {
   if (!text) return;
   const range = new Range();
   range.setStart(text, text.length);
-  const sel = window.getSelection();
-  sel.removeAllRanges();
-  sel.addRange(range);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(range);
 }
 
 function editTask(event, task) {
