@@ -1,11 +1,11 @@
-import { checkEmptyTask } from "./createEmptyTask.js";
+import { toogleEmptyTask } from "./createEmptyTask.js";
 
 const trashCanBtn = document.querySelector(".trash-can__btn");
 const trashCanList = document.querySelector(".tasks__list_trash-can");
 
 function emptyTrashCan() {
   trashCanList.innerHTML = "";
-  checkEmptyTask(trashCanList);
+  toogleEmptyTask(trashCanList);
   disableButton();
 }
 

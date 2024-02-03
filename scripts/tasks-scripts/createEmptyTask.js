@@ -6,7 +6,7 @@ function addEmptyTask(list) {
   noTask.classList.add("task", "task_no-tasks");
   list.append(noTask);
   const text = noTask.querySelector(".task__text");
-  text.textContent = list.dataset.emptyNotification;
+  text.textContent = list.dataset.emptyTitle;
 }
 
 function removeEmptyTask(list) {
@@ -14,7 +14,7 @@ function removeEmptyTask(list) {
   noTask?.remove();
 }
 
-function checkEmptyTask(list) {
+function toogleEmptyTask(list) {
   const regularTasks = list.querySelector(".task:not([data-empty])");
   if (list.childElementCount === 0) {
     addEmptyTask(list);
@@ -23,6 +23,6 @@ function checkEmptyTask(list) {
   }
 }
 
-tasksLists.forEach((list) => checkEmptyTask(list));
+tasksLists.forEach((list) => toogleEmptyTask(list));
 
-export { checkEmptyTask };
+export { toogleEmptyTask };

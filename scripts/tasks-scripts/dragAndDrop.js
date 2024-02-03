@@ -1,5 +1,5 @@
 import { tasksLists, tasks } from "./consts.js";
-import { checkEmptyTask } from "./createEmptyTask.js";
+import { toogleEmptyTask } from "./createEmptyTask.js";
 import { disableButton } from "./emptyTrashCan.js";
 
 function drag(task) {
@@ -28,7 +28,7 @@ function dragover(event) {
     list.insertBefore(selectedTask, nextElement);
     selectedTask.innerHTML = text;
   }
-  tasksLists.forEach((list) => checkEmptyTask(list));
+  tasksLists.forEach((list) => toogleEmptyTask(list));
 }
 
 tasksLists.forEach((list) => {

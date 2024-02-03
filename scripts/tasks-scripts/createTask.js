@@ -1,6 +1,6 @@
 import { drag, drop } from "./dragAndDrop.js";
 import { editTask } from "./editTask.js";
-import { checkEmptyTask } from "./createEmptyTask.js";
+import { toogleEmptyTask } from "./createEmptyTask.js";
 
 const taskForm = document.querySelector(".new-task__form");
 const taskName = taskForm.querySelector(".new-task__name");
@@ -17,7 +17,7 @@ function createTask(event) {
   task.addEventListener("dragend", () => drop(task));
   task.addEventListener("click", (event) => editTask(event, task));
   taskName.value = "";
-  checkEmptyTask(list);
+  toogleEmptyTask(list);
 }
 
 taskForm.addEventListener("submit", createTask);
