@@ -23,6 +23,4 @@ function toogleEmptyTask(list) {
   }
 }
 
-tasksLists.forEach((list) => toogleEmptyTask(list));
-
 export { toogleEmptyTask };
