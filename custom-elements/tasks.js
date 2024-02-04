@@ -9,7 +9,7 @@ class TasksTemplate extends HTMLElement {
     this.innerHTML = `
     ${
       !isEmpty
-        ? `    <span class="task__text" tabindex="0"></span>
+        ? `<span class="task__text" tabindex="0"></span>
         <svg
     width="18"
     height="17"
