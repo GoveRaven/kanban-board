@@ -1,5 +1,7 @@
 import { tasks } from "./consts.js";
 
+console.log(tasks)
+
 function endEditTask(task, taskText) {
   task.classList.remove("task_editing");
   taskText.removeAttribute("contenteditable");
@@ -24,8 +26,10 @@ function endEditTaskWithClick(event, task, taskText) {
   }
 }
 
-function setSelection(text) {
-  if (!text) return;
+function setSelection(event, taskText) {
+  const text = taskText.firstChild
+  console.log(event.target)
+  if (!text || event.target.classList.contains('task__text')) return;
   const range = new Range();
   range.setStart(text, text.length);
   const selection = window.getSelection();
@@ -42,7 +46,7 @@ function editTask(event, task) {
   task.classList.add("task_editing");
   taskText.setAttribute("contenteditable", "true");
   taskText.focus();
-  setSelection(taskText.firstChild);
+  setSelection(event, taskText);
   window.addEventListener("click", (event) =>
     endEditTaskWithClick(event, task, taskText)
   );
