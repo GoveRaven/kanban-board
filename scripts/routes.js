@@ -6,12 +6,9 @@ const hrefOfMainPage = "./index.html";
 const hrefOfLoginPage = "./login.html";
 
 onAuthStateChanged(auth, () => {
-  if (!auth.currentUser && window.location.href.includes('/login.html')) {
+  if (!auth.currentUser && window.location.href.includes("/login.html")) {
     redirectToMainPage();
-  } else if (
-    auth.currentUser &&
-    window.location.href.includes('/index.html')
-  ) {
+  } else if (auth.currentUser && window.location.href.includes("/index.html")) {
     redirectToLoginPage();
   }
   setTimeout(removeLoader, 1000);

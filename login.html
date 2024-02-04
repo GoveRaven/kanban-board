@@ -23,34 +23,53 @@
     <main class="main">
       <div class="main__new-task">
         <h2 class="new-task__title">Новая задача</h2>
-        <div class="new-task__wrapper">
+        <form class="new-task__form">
           <input
             type="text"
             placeholder="Название задачи..."
             class="new-task__name"
+            required
           />
           <button class="new-task__btn">
             <img src="img/Plus.svg" alt="иконка плюса" />Добавить
           </button>
-        </div>
+        </form>
       </div>
       <div class="main__tasks">
         <div class="tasks__wrapper tasks_backlog">
           <div class="tasks__title tasks__title_backlog">Бэклог</div>
-          <div class="tasks__list"></div>
+          <div class="tasks__list tasks__list_backlog" data-list-type="backlog">
+            <template-task data-empty="true" class="task task_no-tasks">
+            </template-task>
+          </div>
         </div>
-        <div class="tasks__wrapper tasks_inProgress">
-          <div class="tasks__title tasks__title_inProgress">В процессе</div>
-          <div class="tasks__list"></div>
+        <div class="tasks__wrapper tasks_in-progress">
+          <div class="tasks__title tasks__title_in-progress">В процессе</div>
+          <div
+            class="tasks__list tasks__list_in-progress"
+            data-list-type="inProgress"
+          >
+            <template-task data-empty="true" class="task task_no-tasks">
+            </template-task>
+          </div>
         </div>
         <div class="tasks__wrapper tasks_ready">
           <div class="tasks__title tasks__title_ready">Готово</div>
-          <div class="tasks__list"></div>
+          <div class="tasks__list tasks__list_ready" data-list-type="ready">
+            <template-task data-empty="true" class="task task_no-tasks">
+            </template-task>
+          </div>
         </div>
-        <div class="tasks__wrapper tasks_trashCan">
-          <div class="tasks__title tasks__title_trashCan">Корзина</div>
-          <div class="tasks__list"></div>
-          <button class="trashCan__btn">
+        <div class="tasks__wrapper tasks_trash-can">
+          <div class="tasks__title tasks__title_trash-can">Корзина</div>
+          <div
+            class="tasks__list tasks__list_trash-can"
+            data-list-type="trashCan"
+          >
+            <template-task data-empty="true" class="task task_no-tasks">
+            </template-task>
+          </div>
+          <button class="trash-can__btn" disabled>
             <img src="img/cross.svg" alt="иконка креста" />Очистить
           </button>
         </div>
@@ -59,5 +78,13 @@
     <template-loader></template-loader>
     <script src="scripts/logOut.js" type="module"></script>
     <script src="scripts/addUserInfo.js" type="module"></script>
+    <script src="scripts/tasks-scripts/editTask.js" type="module"></script>
+    <script src="scripts/tasks-scripts/createTask.js" type="module"></script>
+    <script src="scripts/tasks-scripts/dragAndDrop.js" type="module"></script>
+    <script src="scripts/tasks-scripts/emptyTrashCan.js" type="module"></script>
+    <script
+      src="scripts/tasks-scripts/createEmptyTask.js"
+      type="module"
+    ></script>
   </body>
 </html>

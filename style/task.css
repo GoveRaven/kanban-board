@@ -3,14 +3,19 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  min-height: 68px;
   width: 280px;
   padding: 20px;
   gap: 10px;
   background-color: white;
+  outline: none;
+  white-space: pre-wrap;
+  word-break: break-word;
   border-radius: var(--radius-size-small);
   border-width: 0 0 0 6px;
   border-style: solid;
   font-weight: var(--font-bold);
+  cursor: pointer;
 }
 
 .main__tasks {
@@ -22,19 +27,26 @@
 }
 
 .task__icon {
+  width: 16px;
+  height: 16px;
   stroke: black;
   padding: 6px;
   box-sizing: content-box;
   visibility: hidden;
+  flex-shrink: 0;
 }
 
 .task:hover .task__icon {
   visibility: visible;
 }
 
+.task__text {
+  outline: none;
+}
+
 .task_editing .task__text {
   flex-grow: 1;
-  border: 1px solid var(--editing-color);
+  outline: 1px solid var(--editing-color);
   border-radius: var(--radius-size-editing);
 }
 
@@ -42,29 +54,31 @@
   background-color: #d1e2f8;
   stroke: var(--editing-color);
   border-radius: var(--radius-size-editing);
+  visibility: visible;
 }
 
-.task_backlog {
+.tasks__list_backlog .task {
   border-color: var(--backlog-color);
 }
 
-.task_inProgress {
-  border-color: var(--inProgress-color);
+.tasks__list_in-progress .task {
+  border-color: var(--in-progress-color);
 }
 
-.task_ready {
+.tasks__list_ready .task {
   border-color: var(--ready-color);
 }
 
-.task_trashCan {
-  border-color: var(--trashCan-color);
+.tasks__list_trash-can .task {
+  border-color: var(--trash-can-color);
 }
 
-.trashCan__btn {
+.trash-can__btn {
   font-weight: var(--font-bold);
 }
 
-.task_no-tasks {
+.task_no-tasks.task,
+.task_dragging.task {
   background-color: initial;
   border: 2px dashed var(--noTasks-color);
   color: var(--noTasks-color);

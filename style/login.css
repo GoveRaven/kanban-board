@@ -23,7 +23,7 @@
   font-size: 28px;
 }
 
-.new-task__wrapper {
+.new-task__form {
   display: flex;
   gap: 16px;
 }
@@ -77,6 +77,7 @@
   display: flex;
   justify-content: space-between;
   gap: 12px;
+  flex-grow: 1;
 }
 
 .tasks__wrapper {
@@ -103,9 +104,9 @@
   background-color: var(--backlog-color);
 }
 
-.tasks__title_inProgress {
+.tasks__title_in-progress {
   color: #4070be;
-  background-color: var(--inProgress-color);
+  background-color: var(--in-progress-color);
 }
 
 .tasks__title_ready {
@@ -113,9 +114,9 @@
   background-color: var(--ready-color);
 }
 
-.tasks__title_trashCan {
+.tasks__title_trash-can {
   color: #a15364;
-  background-color: var(--trashCan-color);
+  background-color: var(--trash-can-color);
 }
 
 .tasks__list {
@@ -125,7 +126,7 @@
   margin-bottom: 8px;
 }
 
-.trashCan__btn {
+.trash-can__btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -138,19 +139,19 @@
   border-radius: var(--radius-size-small);
 }
 
-.trashCan__btn:hover {
+.trash-can__btn:hover {
   background-color: #bd5f6f;
 }
 
-.trashCan__btn:active {
+.trash-can__btn:active {
   background-color: #c7384f;
 }
 
-.trashCan__btn:focus-visible {
+.trash-can__btn:focus-visible {
   background-color: #be4155;
   outline: 2px solid #a00000;
 }
 
-.trashCan__btn:disabled {
+.trash-can__btn:disabled {
   background-color: var(--disabledBtn-color);
 }

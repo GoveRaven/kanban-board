@@ -3,10 +3,10 @@
   --editing-color: #4280ea;
   --red-color: #b74e5f;
   --backlog-color: #dfdfdf;
-  --inProgress-color: #d1e2f8;
+  --in-progress-color: #d1e2f8;
   --ready-color: #d3fddc;
-  --trashCan-color: #f7dbdb;
-  --trashCanBtn-color-focus: #be4155;
+  --trash-can-color: #f7dbdb;
+  --trash-canBtn-color-focus: #be4155;
   --noTasks-color: #a1a1a1;
   --disabledBtn-color: #d8d8d8;
   --newTaskName-color: #cecece;
