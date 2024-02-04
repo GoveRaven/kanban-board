@@ -1,12 +1,8 @@
-import { tasksLists } from "./consts.js";
-
 function addEmptyTask(list) {
   const noTask = document.createElement("template-task");
   noTask.setAttribute("data-empty", "true");
   noTask.classList.add("task", "task_no-tasks");
   list.append(noTask);
-  const text = noTask.querySelector(".task__text");
-  text.textContent = titles[this.parentNode.dataset.listType];
 }
 
 function removeEmptyTask(list) {
