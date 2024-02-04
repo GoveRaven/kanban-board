@@ -6,7 +6,7 @@ function addEmptyTask(list) {
   noTask.classList.add("task", "task_no-tasks");
   list.append(noTask);
   const text = noTask.querySelector(".task__text");
-  text.textContent = list.dataset.emptyTitle;
+  text.textContent = titles[this.parentNode.dataset.listType];
 }
 
 function removeEmptyTask(list) {
