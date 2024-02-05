@@ -1,6 +1,7 @@
 import { tasksLists, tasks } from "./consts.js";
 import { toogleEmptyTask } from "./createEmptyTask.js";
 import { disableButton } from "./emptyTrashCan.js";
+import { editTask } from "./editTask.js";
 
 function drag(task) {
   task.classList.add("task_dragndrop");
@@ -27,6 +28,10 @@ function dragover(event) {
   if (currentTask.classList.contains("task")) {
     list.insertBefore(selectedTask, nextElement);
     selectedTask.innerHTML = text;
+    const pencilIcon = selectedTask.querySelector(".task__icon");
+    pencilIcon.addEventListener("click", (event) =>
+      editTask(event, selectedTask)
+    );
   }
   tasksLists.forEach((list) => toogleEmptyTask(list));
 }
