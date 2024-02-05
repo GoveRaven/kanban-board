@@ -15,7 +15,8 @@ function createTask(event) {
   text.textContent = taskName.value;
   task.addEventListener("dragstart", () => drag(task));
   task.addEventListener("dragend", () => drop(task));
-  task.addEventListener("click", (event) => editTask(event, task));
+  const pencilIcon = task.querySelector(".task__icon");
+  pencilIcon.addEventListener("click", (event) => editTask(event, task));
   taskName.value = "";
   toogleEmptyTask(list);
 }
