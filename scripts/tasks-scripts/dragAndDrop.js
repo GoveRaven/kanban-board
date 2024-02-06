@@ -22,11 +22,9 @@ function dragover(event) {
   const list = event.target.closest(".tasks__list");
   const currentTask = event.target;
   const selectedTask = document.querySelector(".task_dragndrop");
-  const text = selectedTask.innerHTML;
   const nextElement = getNextElement(event.clientY, currentTask);
   if (currentTask.classList.contains("task")) {
     list.insertBefore(selectedTask, nextElement);
-    selectedTask.innerHTML = text;
   }
   tasksLists.forEach((list) => toogleEmptyTask(list));
 }
