@@ -11,6 +11,7 @@ class TasksTemplate extends HTMLElement {
   };
 
   connectedCallback() {
+    this.dataset.taskType = this.parentNode.dataset.listType;
     if (this.exict) return;
     this.exict = "true";
     const isEmpty = this.dataset.empty === "true";
@@ -32,7 +33,7 @@ class TasksTemplate extends HTMLElement {
     />
   </svg>`
         : `<span class="task__text" tabindex="0">${
-            TasksTemplate.titles[this.parentNode.dataset.listType]
+            TasksTemplate.titles[this.dataset.taskType]
           }</span>`
     }
   `;

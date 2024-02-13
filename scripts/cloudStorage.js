@@ -1,60 +1,80 @@
 // import { getApp } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-app.js";
+import { firebaseConfig, auth, app } from "./firebaseConfig.js";
+import { tasksLists } from "./tasks-scripts/consts.js";
+import { createTask } from "./tasks-scripts/createTask.js";
 import {
-  getStorage,
+  getDatabase,
   ref,
-  uploadBytes,
-} from "https://www.gstatic.com/firebasejs/10.5.2/firebase-storage.js";
-import { firebaseConfig, auth } from "./firebaseConfig.js";
+  set,
+  child,
+  get,
+  push,
+  update,
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-// const firebaseApp = getApp();
-const storage = getStorage();
-const storageRef = ref(storage, "tasks");
+const database = getDatabase();
+const dbRef = ref(getDatabase());
+let userUid;
 
-// console.log(auth);
-
-function rememberTasks(task, title, type) {
-  // console.log(task)
-  const tasktitle = title
-  const tasktype = type
-  console.log(tasktitle)
-  console.log(type)
+function getUserFromDB(uid) {
+  get(child(dbRef, `users/${uid}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      userUid = uid;
+      addTasksOnSite(snapshot.val().tasks);
+    } else {
+      console.log("error");
+      setUserInDB(uid);
+      getUserFromDB(uid);
+    }
+  });
 }
 
-export {rememberTasks}
+function addTasksOnSite(tasks) {
+  if (tasks === undefined) return;
+  const values = Object.values(tasks);
+  const keys = Object.keys(tasks);
+  for (let i = 0; i < Object.values(tasks).length; i++) {
+    createTask(values[i].title, values[i].taskType, keys[i]);
+  }
+}
 
-const tasks = [
-  // {
-  //   id: 1,
-  //   taskTitle: "Разобраться с хранением данных в firebase",
-  //   taskType: "backlog",
-  // },
-  // {
-  //   id: 2,
-  //   taskTitle: "Вспомнить материал по БД",
-  //   taskType: "backlog",
-  // },
-  // {
-  //   id: 3,
-  //   taskTitle: "Закодить финальную часть проекта",
-  //   taskType: "inProgress",
-  // },
-];
+function setUserInDB(uid) {
+  set(ref(database, `users/${uid}`), {
+    uid: uid,
+  });
+}
 
-// let file = JSON.stringify(tasks)
+function createUserTasksInDB(task, title, taskType) {
+  if (task.dataset.key !== undefined) {
+    console.log(task.dataset.key);
+    return;
+  }
+  const DBTask = {
+    title: title,
+    taskType: taskType,
+  };
+  const newPostKey = push(child(ref(database), "tasks")).key;
+  console.log(newPostKey)
+  task.dataset.key = newPostKey;
+  const updates = {};
+  updates[`users/${userUid}/tasks/${newPostKey}`] = DBTask;
+  return update(ref(database), updates);
+}
 
-// console.log(file);
+function updateUserTasksInDB(title, taskType, key) {
+  console.log(title);
+  const newTask = {};
+  const updates = {};
+  get(child(dbRef, `users/${userUid}/tasks/${key}`)).then((snapshot) => {
+    if (snapshot.exists()) {
+      console.log(snapshot.val());
+      newTask.title = title;
+      newTask.taskType = taskType;
+      updates[`users/${userUid}/tasks/${key}`] = newTask;
+      console.log(updates);
+      return update(ref(database), updates);
+    }
+  });
+}
 
-// let revFile = JSON.parse(file)
-
-// console.log(revFile)
-
-// const login = await fetch("../login.html");
-// const text = await login.text();
-
-// console.log(text)
-
-// uploadBytes(storageRef, file).then((snapshot) => {
-//   console.log('Uploaded a blob or file!');
-// });
-
-// console.log(storageRef);
+export { setUserInDB, getUserFromDB, createUserTasksInDB, updateUserTasksInDB };

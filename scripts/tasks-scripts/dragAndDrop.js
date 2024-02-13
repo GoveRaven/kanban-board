@@ -1,6 +1,7 @@
 import { tasksLists, tasks } from "./consts.js";
 import { toogleEmptyTask } from "./createEmptyTask.js";
 import { disableButton } from "./emptyTrashCan.js";
+import { updateUserTasksInDB } from "../cloudStorage.js";
 
 function drag(task) {
   task.classList.add("task_dragndrop");
@@ -8,9 +9,11 @@ function drag(task) {
 }
 
 function drop(task) {
+  const text = task.querySelector(".task__text");
   task.classList.remove("task_dragndrop");
   task.classList.remove("task_dragging");
   disableButton();
+  updateUserTasksInDB(text.textContent, task.dataset.taskType, task.dataset.key)
 }
 
 tasks.forEach((task) => {
