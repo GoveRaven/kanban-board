@@ -13,7 +13,11 @@ function drop(task) {
   task.classList.remove("task_dragndrop");
   task.classList.remove("task_dragging");
   disableButton();
-  updateUserTasksInDB(text.textContent, task.dataset.taskType, task.dataset.key)
+  updateUserTasksInDB(
+    text.textContent,
+    task.dataset.taskType,
+    task.dataset.key
+  );
 }
 
 tasks.forEach((task) => {

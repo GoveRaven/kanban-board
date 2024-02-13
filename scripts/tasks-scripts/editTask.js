@@ -58,8 +58,9 @@ function editTask(event, task) {
   );
 }
 
-tasks.forEach((task) =>
-  task.addEventListener("click", (event) => editTask(event, task))
-);
+tasks.forEach((task) => {
+  const pencilIcon = task.querySelector(".task__icon");
+  pencilIcon.addEventListener("click", (event) => editTask(event, task));
+});
 
 export { editTask };

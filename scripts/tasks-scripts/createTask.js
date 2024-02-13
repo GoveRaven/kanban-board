@@ -15,12 +15,13 @@ function createTask(taskTitle, taskType, key) {
       list.append(task);
       task.classList.add("task");
       task.dataset.taskType = taskType;
-      task.dataset.key = key
+      task.dataset.key = key;
       const text = task.querySelector(".task__text");
       text.textContent = taskTitle;
       task.addEventListener("dragstart", () => drag(task));
       task.addEventListener("dragend", () => drop(task));
-      task.addEventListener("click", (event) => editTask(event, task));
+      const pencilIcon = task.querySelector(".task__icon");
+      pencilIcon.addEventListener("click", (event) => editTask(event, task));
       toogleEmptyTask(list);
       disableButton();
       createUserTasksInDB(task, taskTitle, taskType);

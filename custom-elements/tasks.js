@@ -14,6 +14,9 @@ class TasksTemplate extends HTMLElement {
     this.dataset.taskType = this.parentNode.dataset.listType;
     if (this.exict) return;
     this.exict = "true";
+    this.dataset.taskType = this.parentNode.dataset.listType;
+    if (this.exict) return;
+    this.exict = "true";
     const isEmpty = this.dataset.empty === "true";
     this.draggable = !isEmpty;
     this.innerHTML = `
