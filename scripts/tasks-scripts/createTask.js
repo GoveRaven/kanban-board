@@ -1,12 +1,11 @@
 import { drag, drop } from "./dragAndDrop.js";
 import { editTask } from "./editTask.js";
 import { toogleEmptyTask } from "./createEmptyTask.js";
-import { createUserTasksInDB } from "../cloudStorage.js";
 import { tasksLists } from "./consts.js";
 import { disableButton } from "./emptyTrashCan.js";
+import { createUserTasksInDB } from "../cloudStorage.js";
 
 const taskForm = document.querySelector(".new-task__form");
-const list = document.querySelector(".tasks__list_backlog");
 
 function createTask(taskTitle, taskType, key) {
   const task = document.createElement("template-task");
@@ -15,7 +14,7 @@ function createTask(taskTitle, taskType, key) {
       list.append(task);
       task.classList.add("task");
       task.dataset.taskType = taskType;
-      task.dataset.key = key;
+      key && (task.dataset.key = key);
       const text = task.querySelector(".task__text");
       text.textContent = taskTitle;
       task.addEventListener("dragstart", () => drag(task));
