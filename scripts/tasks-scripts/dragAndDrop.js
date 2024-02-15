@@ -1,7 +1,7 @@
 import { tasksLists, tasks } from "./consts.js";
 import { toogleEmptyTask } from "./createEmptyTask.js";
 import { disableButton } from "./emptyTrashCan.js";
-import { updateUserTasksInDB } from "../cloudStorage.js";
+import { updateUserTasksInDB } from "../realtimeDatabase.js";
 
 function drag(task) {
   task.classList.add("task_dragndrop");

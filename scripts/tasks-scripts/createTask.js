@@ -3,7 +3,7 @@ import { editTask } from "./editTask.js";
 import { toogleEmptyTask } from "./createEmptyTask.js";
 import { tasksLists } from "./consts.js";
 import { disableButton } from "./emptyTrashCan.js";
-import { addUserTasksInDB } from "../cloudStorage.js";
+import { addUserTasksInDB } from "../realtimeDatabase.js";
 
 const taskForm = document.querySelector(".new-task__form");
 

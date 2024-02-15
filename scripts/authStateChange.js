@@ -13,7 +13,7 @@ onAuthStateChanged(auth, () => {
     import("./addUserInfo.js").then((script) =>
       script.addInfo(user.providerData[0])
     );
-    import("./cloudStorage.js").then((script) =>
+    import("./realtimeDatabase.js").then((script) =>
       script.getUserFromDB(user.providerData[0].uid)
     );
   }
