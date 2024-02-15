@@ -11,7 +11,7 @@ const firebaseConfig = {
   databaseURL: "https://kanban-board-78a77-default-rtdb.firebaseio.com/",
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 const auth = getAuth();
 
-export { firebaseConfig, auth, app };
+export { firebaseConfig, auth };
