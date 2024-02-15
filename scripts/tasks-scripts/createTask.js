@@ -3,7 +3,7 @@ import { editTask } from "./editTask.js";
 import { toogleEmptyTask } from "./createEmptyTask.js";
 import { tasksLists } from "./consts.js";
 import { disableButton } from "./emptyTrashCan.js";
-import { createUserTasksInDB } from "../cloudStorage.js";
+import { addUserTasksInDB } from "../cloudStorage.js";
 
 const taskForm = document.querySelector(".new-task__form");
 
@@ -23,7 +23,7 @@ function createTask(taskTitle, taskType, key) {
       pencilIcon.addEventListener("click", (event) => editTask(event, task));
       toogleEmptyTask(list);
       disableButton();
-      createUserTasksInDB(task, taskTitle, taskType);
+      addUserTasksInDB(task, taskTitle, taskType);
     }
   });
 }
