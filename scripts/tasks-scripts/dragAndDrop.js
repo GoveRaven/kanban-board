@@ -10,14 +10,14 @@ function drag(task) {
 
 function drop(task) {
   const text = task.querySelector(".task__text");
-  task.classList.remove("task_dragndrop");
-  task.classList.remove("task_dragging");
-  disableButton();
   updateUserTasksInDB(
     text.textContent,
     task.dataset.taskType,
     task.dataset.key
   );
+  task.classList.remove("task_dragndrop");
+  task.classList.remove("task_dragging");
+  disableButton();
 }
 
 tasks.forEach((task) => {
