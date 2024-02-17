@@ -3,7 +3,7 @@ import { editTask } from "./editTask.js";
 import { toogleEmptyTask } from "./createEmptyTask.js";
 import { tasksLists } from "./consts.js";
 import { disableButton } from "./emptyTrashCan.js";
-import { addUserTasksInDB } from "../realtimeDatabase.js";
+import { addUserTaskInDB } from "../realtimeDatabase.js";
 
 const taskForm = document.querySelector(".new-task__form");
 
@@ -14,7 +14,7 @@ function createTask(taskTitle, taskType, key) {
       list.append(task);
       task.classList.add("task");
       task.dataset.taskType = taskType;
-      key && (task.dataset.key = key);
+      task.dataset.key = key;
       const text = task.querySelector(".task__text");
       text.textContent = taskTitle;
       task.addEventListener("dragstart", () => drag(task));
@@ -23,18 +23,18 @@ function createTask(taskTitle, taskType, key) {
       pencilIcon.addEventListener("click", (event) => editTask(event, task));
       toogleEmptyTask(list);
       disableButton();
-      addUserTasksInDB(task, taskTitle, taskType);
+      addUserTaskInDB(task, taskTitle, taskType);
     }
   });
 }
 
-function creatTaskOnSite(event) {
+function createTaskOnSite(event) {
   event.preventDefault();
   const taskTitleInput = taskForm.querySelector(".new-task__name");
   createTask(taskTitleInput.value, "backlog");
   taskTitleInput.value = "";
 }
 
-taskForm.addEventListener("submit", creatTaskOnSite);
+taskForm.addEventListener("submit", createTaskOnSite);
 
 export { createTask };
