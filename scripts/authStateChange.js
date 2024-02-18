@@ -1,6 +1,5 @@
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { auth } from "./firebaseConfig.js";
-import { removeLoader } from "./removeLoader.js";
 import { redirectToMainPage, redirectToLoginPage } from "./routes.js";
 
 onAuthStateChanged(auth, () => {
@@ -17,5 +16,4 @@ onAuthStateChanged(auth, () => {
       script.getUserFromDB(user.providerData[0].uid)
     );
   }
-  removeLoader();
 });

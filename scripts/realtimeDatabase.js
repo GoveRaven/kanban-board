@@ -9,6 +9,7 @@ import {
   remove,
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 import { createTask } from "./tasks-scripts/createTask.js";
+import { removeLoader } from "./removeLoader.js";
 
 const database = getDatabase();
 const dbRef = ref(database);
@@ -37,6 +38,7 @@ function getUserFromDB(uid) {
     } else {
       setUserInDB(uid);
     }
+    removeLoader()
   });
 }
 
