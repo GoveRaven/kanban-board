@@ -14,7 +14,7 @@ function createTask(taskTitle, taskType, key) {
       list.append(task);
       task.classList.add("task");
       task.dataset.taskType = taskType;
-      task.dataset.key = key;
+      key && (task.dataset.key = key);
       const text = task.querySelector(".task__text");
       text.textContent = taskTitle;
       task.addEventListener("dragstart", () => drag(task));
