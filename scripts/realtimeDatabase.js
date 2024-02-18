@@ -41,7 +41,7 @@ function getUserFromDB(uid) {
 }
 
 function addUserTaskInDB(task, title, taskType) {
-  if (!task.dataset.key) return;
+  if (!!task.dataset.key) return;
   const DBTask = {
     title,
     taskType,
