@@ -13,6 +13,8 @@ import { removeLoader } from "./removeLoader.js";
 
 const database = getDatabase();
 const dbRef = ref(database);
+const userKey = "users";
+const tasksKey = "tasks";
 let userUid;
 let path;
 
@@ -24,21 +26,21 @@ function addTasksOnSite(tasks) {
 }
 
 function setUserInDB(uid) {
-  set(ref(database, `users/${uid}`), {
+  set(ref(database, `${userKey}/${uid}`), {
     uid,
   });
 }
 
 function getUserFromDB(uid) {
-  get(child(dbRef, `users/${uid}`)).then((snapshot) => {
+  get(child(dbRef, `${userKey}/${uid}`)).then((snapshot) => {
     if (snapshot.exists()) {
       userUid = uid;
-      path = `users/${userUid}/tasks/`;
+      path = `${userKey}/${userUid}/${tasksKey}/`;
       addTasksOnSite(snapshot.val().tasks);
     } else {
       setUserInDB(uid);
     }
-    removeLoader()
+    removeLoader();
   });
 }
 
@@ -48,7 +50,7 @@ function addUserTaskInDB(task, title, taskType) {
     title,
     taskType,
   };
-  const key = push(child(dbRef, "tasks")).key;
+  const { key } = push(child(dbRef, tasksKey));
   task.dataset.key = key;
   const updates = {};
   updates[`${path}/${key}`] = DBTask;
