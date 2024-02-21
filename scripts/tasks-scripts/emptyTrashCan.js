@@ -1,9 +1,12 @@
 import { toogleEmptyTask } from "./createEmptyTask.js";
+import { removeTaskFromDB } from "../realtimeDatabase.js";
 
 const trashCanBtn = document.querySelector(".trash-can__btn");
 const trashCanList = document.querySelector(".tasks__list_trash-can");
 
 function emptyTrashCan() {
+  const trashTasks = trashCanList.querySelectorAll(".task");
+  trashTasks.forEach((task) => removeTaskFromDB(task.dataset.key));
   trashCanList.innerHTML = "";
   toogleEmptyTask(trashCanList);
   disableButton();

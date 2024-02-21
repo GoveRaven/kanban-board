@@ -1,8 +1,14 @@
 import { tasks } from "./consts.js";
+import { updateUserTasksInDB } from "../realtimeDatabase.js";
 
 function endEditTask(task, taskText) {
   task.classList.remove("task_editing");
   taskText.removeAttribute("contenteditable");
+  updateUserTasksInDB(
+    taskText.textContent,
+    task.dataset.taskType,
+    task.dataset.key
+  );
 }
 
 function endEditTaskWithKeyDown(event, task, taskText) {

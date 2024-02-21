@@ -1,7 +1,7 @@
 import { tasksLists, tasks } from "./consts.js";
 import { toogleEmptyTask } from "./createEmptyTask.js";
 import { disableButton } from "./emptyTrashCan.js";
-import { editTask } from "./editTask.js";
+import { updateUserTasksInDB } from "../realtimeDatabase.js";
 
 function drag(task) {
   task.classList.add("task_dragndrop");
@@ -9,6 +9,12 @@ function drag(task) {
 }
 
 function drop(task) {
+  const text = task.querySelector(".task__text");
+  updateUserTasksInDB(
+    text.textContent,
+    task.dataset.taskType,
+    task.dataset.key
+  );
   task.classList.remove("task_dragndrop");
   task.classList.remove("task_dragging");
   disableButton();
