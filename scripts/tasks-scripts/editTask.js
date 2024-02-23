@@ -2,6 +2,7 @@ import { tasks } from "./consts.js";
 import { updateUserTasksInDB } from "../realtimeDatabase.js";
 
 function endEditTask(task, taskText) {
+  taskText.innerText = taskText.innerText.trim()
   task.classList.remove("task_editing");
   taskText.removeAttribute("contenteditable");
   updateUserTasksInDB(
