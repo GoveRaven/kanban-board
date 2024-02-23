@@ -9,24 +9,25 @@ function endEditTask(task, taskText) {
     task.dataset.taskType,
     task.dataset.key
   );
+  window.removeEventListener("click", (event) =>
+    endEditTaskWithClick(event, task, taskText)
+  );
+  window.removeEventListener("keydown", (event) => {
+    endEditTaskWithKeyDown(event, task, taskText);
+    symbolLimit(event, taskText);
+  });
 }
 
 function endEditTaskWithKeyDown(event, task, taskText) {
   if (["Enter", "Escape"].includes(event.key)) {
     event.preventDefault();
     endEditTask(task, taskText);
-    window.removeEventListener("keydown", (event) =>
-      endEditTaskWithKeyDown(event, task, taskText)
-    );
   }
 }
 
 function endEditTaskWithClick(event, task, taskText) {
   if (!event.target.closest(".task")) {
     endEditTask(task, taskText);
-    window.removeEventListener("click", (event) =>
-      endEditTaskWithClick(event, task, taskText)
-    );
   }
 }
 
@@ -38,6 +39,12 @@ function setSelection(event, taskText) {
   const selection = window.getSelection();
   selection.removeAllRanges();
   selection.addRange(range);
+}
+
+function symbolLimit(event, text) {
+  if (text.innerText.length >= 100 && event.key !== "Backspace") {
+    event.preventDefault();
+  }
 }
 
 function editTask(event, task) {
@@ -53,9 +60,10 @@ function editTask(event, task) {
   window.addEventListener("click", (event) =>
     endEditTaskWithClick(event, task, taskText)
   );
-  window.addEventListener("keydown", (event) =>
-    endEditTaskWithKeyDown(event, task, taskText)
-  );
+  window.addEventListener("keydown", (event) => {
+    endEditTaskWithKeyDown(event, task, taskText);
+    symbolLimit(event, taskText);
+  });
 }
 
 tasks.forEach((task) => {
