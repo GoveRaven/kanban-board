@@ -82,4 +82,5 @@
   background-color: initial;
   border: 2px dashed var(--noTasks-color);
   color: var(--noTasks-color);
+  cursor: default;
 }
