@@ -1,8 +1,14 @@
 import { tasks } from "./consts.js";
 import { updateUserTasksInDB } from "../realtimeDatabase.js";
 
+function checkSymbolLimit(event, text) {
+  if (text.innerText.length >= 100 && event.key !== "Backspace") {
+    event.preventDefault();
+  }
+}
+
 function endEditTask(task, taskText) {
-  taskText.innerText = taskText.innerText.trim()
+  taskText.innerText = taskText.innerText.trim();
   task.classList.remove("task_editing");
   taskText.removeAttribute("contenteditable");
   updateUserTasksInDB(
@@ -13,9 +19,10 @@ function endEditTask(task, taskText) {
   window.removeEventListener("click", (event) =>
     endEditTaskWithClick(event, task, taskText)
   );
+
   window.removeEventListener("keydown", (event) => {
     endEditTaskWithKeyDown(event, task, taskText);
-    symbolLimit(event, taskText);
+    checkSymbolLimit(event, taskText);
   });
 }
 
@@ -42,12 +49,6 @@ function setSelection(event, taskText) {
   selection.addRange(range);
 }
 
-function symbolLimit(event, text) {
-  if (text.innerText.length >= 100 && event.key !== "Backspace") {
-    event.preventDefault();
-  }
-}
-
 function editTask(event, task) {
   const smthIsEditing = document.querySelector(".task_editing");
   if (smthIsEditing) {
@@ -63,7 +64,7 @@ function editTask(event, task) {
   );
   window.addEventListener("keydown", (event) => {
     endEditTaskWithKeyDown(event, task, taskText);
-    symbolLimit(event, taskText);
+    checkSymbolLimit(event, taskText);
   });
 }
 
