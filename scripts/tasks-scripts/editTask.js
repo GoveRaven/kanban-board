@@ -7,8 +7,11 @@ function checkSymbolLimit(event, text) {
   }
 }
 
-function endEditTask(task, taskText) {
-  taskText.innerText = taskText.innerText.trim();
+function endEditTask(task, taskText, originalText) {  if (taskText.innerText.length === 0) {
+    taskText.innerText = originalText;
+  } else {
+    taskText.innerText = taskText.innerText.trim();
+  }
   task.classList.remove("task_editing");
   taskText.removeAttribute("contenteditable");
   updateUserTasksInDB(
@@ -26,16 +29,16 @@ function endEditTask(task, taskText) {
   });
 }
 
-function endEditTaskWithKeyDown(event, task, taskText) {
+function endEditTaskWithKeyDown(event, task, taskText, originalText) {
   if (["Enter", "Escape"].includes(event.key)) {
     event.preventDefault();
-    endEditTask(task, taskText);
+    endEditTask(task, taskText, originalText);
   }
 }
 
-function endEditTaskWithClick(event, task, taskText) {
+function endEditTaskWithClick(event, task, taskText, originalText) {
   if (!event.target.closest(".task")) {
-    endEditTask(task, taskText);
+    endEditTask(task, taskText, originalText);
   }
 }
 
@@ -55,15 +58,16 @@ function editTask(event, task) {
     smthIsEditing.classList.remove("task_editing");
   }
   const taskText = task.querySelector(".task__text");
+  const originalText = taskText.innerText;
   task.classList.add("task_editing");
   taskText.setAttribute("contenteditable", "true");
   taskText.focus();
   setSelection(event, taskText);
   window.addEventListener("click", (event) =>
-    endEditTaskWithClick(event, task, taskText)
+    endEditTaskWithClick(event, task, taskText, originalText)
   );
   window.addEventListener("keydown", (event) => {
-    endEditTaskWithKeyDown(event, task, taskText);
+    endEditTaskWithKeyDown(event, task, taskText, originalText);
     checkSymbolLimit(event, taskText);
   });
 }
