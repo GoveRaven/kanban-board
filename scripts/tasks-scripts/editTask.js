@@ -41,7 +41,7 @@ function setSelection(event, taskText) {
   selection.addRange(range);
 }
 
-function addEvents(task, taskText) {
+function addEditTaskEventsListeners(task, taskText) {
   const eventHadler = (event) => {
     if (event.type === "click") {
       endEditTaskWithClick(event, task, taskText);
@@ -51,7 +51,6 @@ function addEvents(task, taskText) {
     }
     const needRemoveListeners =
       !event.target.closest(".task") || ["Enter", "Escape"].includes(event.key);
-
     if (needRemoveListeners) {
       window.removeEventListener("click", eventHadler);
       window.removeEventListener("keydown", eventHadler);
@@ -72,7 +71,7 @@ function editTask(event, task) {
   taskText.setAttribute("contenteditable", "true");
   taskText.focus();
   setSelection(event, taskText);
-  addEvents(task, taskText);
+  addEditTaskEventsListeners(task, taskText);
 }
 
 tasks.forEach((task) => {
