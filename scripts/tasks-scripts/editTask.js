@@ -18,19 +18,6 @@ function endEditTask(task, taskText) {
   );
 }
 
-function endEditTaskWithKeyDown(event, task, taskText) {
-  if (["Enter", "Escape"].includes(event.key)) {
-    event.preventDefault();
-    endEditTask(task, taskText);
-  }
-}
-
-function endEditTaskWithClick(event, task, taskText) {
-  if (!event.target.closest(".task")) {
-    endEditTask(task, taskText);
-  }
-}
-
 function setSelection(event, taskText) {
   const text = taskText.firstChild;
   if (!text || event.target.classList.contains("task__text")) return;
@@ -43,15 +30,14 @@ function setSelection(event, taskText) {
 
 function addEditTaskEventsListeners(task, taskText) {
   const eventHadler = (event) => {
-    if (event.type === "click") {
-      endEditTaskWithClick(event, task, taskText);
-    } else if (event.type === "keydown") {
-      endEditTaskWithKeyDown(event, task, taskText);
+    if (event.type === "keydown") {
       checkSymbolLimit(event, taskText);
     }
     const needRemoveListeners =
       !event.target.closest(".task") || ["Enter", "Escape"].includes(event.key);
     if (needRemoveListeners) {
+      event.preventDefault();
+      endEditTask(task, taskText);
       window.removeEventListener("click", eventHadler);
       window.removeEventListener("keydown", eventHadler);
     }
