@@ -41,7 +41,7 @@ function setSelection(event, taskText) {
   selection.addRange(range);
 }
 
-function eventsToogle(task, taskText) {
+function addEvents(task, taskText) {
   const eventHadler = (event) => {
     if (event.type === "click") {
       endEditTaskWithClick(event, task, taskText);
@@ -49,10 +49,10 @@ function eventsToogle(task, taskText) {
       endEditTaskWithKeyDown(event, task, taskText);
       checkSymbolLimit(event, taskText);
     }
-    const condition =
+    const needRemoveListeners =
       !event.target.closest(".task") || ["Enter", "Escape"].includes(event.key);
 
-    if (condition) {
+    if (needRemoveListeners) {
       window.removeEventListener("click", eventHadler);
       window.removeEventListener("keydown", eventHadler);
     }
@@ -72,7 +72,7 @@ function editTask(event, task) {
   taskText.setAttribute("contenteditable", "true");
   taskText.focus();
   setSelection(event, taskText);
-  eventsToogle(task, taskText);
+  addEvents(task, taskText);
 }
 
 tasks.forEach((task) => {
