@@ -15,7 +15,7 @@
   border-width: 0 0 0 6px;
   border-style: solid;
   font-weight: var(--font-bold);
-  cursor: pointer;
+  cursor: move;
 }
 
 .main__tasks {
@@ -34,6 +34,12 @@
   box-sizing: content-box;
   visibility: hidden;
   flex-shrink: 0;
+  cursor: pointer;
+}
+
+.task__icon:hover {
+  border-radius: var(--radius-size-small);
+  background-color: rgba(206, 206, 206, 0.25);
 }
 
 .task:hover .task__icon {
