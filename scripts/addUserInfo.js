@@ -11,8 +11,15 @@ const logOutBtn = document.querySelector(".user__logOutBtn");
 const logOut = document.querySelector(".user__logOut");
 
 user.addEventListener("click", () => {
-  logOut.classList.toggle("user__logOut-close");
   logOutBtn.classList.toggle("user__logOutBtn-open");
+  window.addEventListener("click", someFunc);
 });
+
+function someFunc() {
+  logOut.classList.toggle("user__logOut-close");
+  if (logOut.classList.contains("user__logOut-close")) {
+    window.removeEventListener("click", someFunc);
+  }
+}
 
 export { addInfo };
