@@ -31,8 +31,8 @@ function createTask(taskTitle, taskType, key) {
 function createTaskOnSite(event) {
   event.preventDefault();
   const taskTitleInput = taskForm.querySelector(".new-task__name");
-  taskTitleInput.value = "";
   createTask(taskTitleInput.value.trim(), "backlog");
+  taskTitleInput.value = "";
 }
 
 taskForm.addEventListener("submit", createTaskOnSite);
