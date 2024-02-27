@@ -7,5 +7,6 @@ function singOutGitHub() {
   logOutBtn.removeEventListener("click", singOutGitHub);
   redirectToMainPage();
 }
+
 const logOutBtn = document.querySelector(".user__logOut");
 logOutBtn.addEventListener("click", singOutGitHub);
