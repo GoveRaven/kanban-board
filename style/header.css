@@ -29,7 +29,7 @@
   border-radius: 50%;
 }
 
-.user__logOutBtn-open {
+.user__logOutBtn-close {
   transform: rotateX(180deg);
 }
 
@@ -47,7 +47,7 @@
   cursor: pointer;
 }
 
-.user__logOut:hover *{
+.user__logOut:hover * {
   opacity: 0.6;
 }
 
