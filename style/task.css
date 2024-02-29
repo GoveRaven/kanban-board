@@ -54,6 +54,7 @@
   flex-grow: 1;
   outline: 1px solid var(--editing-color);
   border-radius: var(--radius-size-editing);
+  cursor: default;
 }
 
 .task_editing .task__icon {
