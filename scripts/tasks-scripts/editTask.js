@@ -28,13 +28,15 @@ function setSelection(event, taskText) {
   selection.addRange(range);
 }
 
-function addEditTaskEventsListeners(task, taskText) {
+function addEditTaskEventsListeners(eventClickFromPencil, task, taskText) {
   const eventHadler = (event) => {
     if (event.type === "keydown") {
       checkSymbolLimit(event, taskText);
     }
     const needRemoveListeners =
-      !event.target.closest(".task") || ["Enter", "Escape"].includes(event.key);
+      !event.target.closest(".task__text") ||
+      ["Enter", "Escape"].includes(event.key);
+
     if (needRemoveListeners) {
       event.preventDefault();
       endEditTask(task, taskText);
@@ -42,13 +44,14 @@ function addEditTaskEventsListeners(task, taskText) {
       window.removeEventListener("keydown", eventHadler);
     }
   };
-
   window.addEventListener("click", eventHadler);
   window.addEventListener("keydown", eventHadler);
+  eventClickFromPencil.stopPropagation();
 }
 
 function editTask(event, task) {
   const smthIsEditing = document.querySelector(".task_editing");
+  if (event.target.closest(".task") === smthIsEditing) return;
   if (smthIsEditing) {
     smthIsEditing.classList.remove("task_editing");
   }
@@ -57,7 +60,7 @@ function editTask(event, task) {
   taskText.setAttribute("contenteditable", "true");
   taskText.focus();
   setSelection(event, taskText);
-  addEditTaskEventsListeners(task, taskText);
+  addEditTaskEventsListeners(event, task, taskText);
 }
 
 tasks.forEach((task) => {
