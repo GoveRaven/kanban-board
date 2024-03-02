@@ -36,25 +36,20 @@
   stroke: black;
   padding: 6px;
   box-sizing: content-box;
-  opacity: 0;;
+  opacity: 0;
   flex-shrink: 0;
   cursor: pointer;
 }
 
-.task__icon:hover,
-.task__icon:focus-visible {
+.task__icon:hover {
   border-radius: var(--radius-size-small);
   background-color: rgba(206, 206, 206, 0.25);
 }
 
 .task__icon:focus-visible {
   outline: solid var(--focus-visible-color) 1px;
-  background-color: rgba(206, 206, 206, 0.25);
+  border-radius: var(--radius-size-small);
   opacity: 1;
-}
-
-.task__icon:focus {
-  outline: none;
 }
 
 .task:hover .task__icon,
