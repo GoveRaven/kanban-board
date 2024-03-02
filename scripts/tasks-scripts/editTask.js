@@ -7,8 +7,12 @@ function checkSymbolLimit(event, text) {
   }
 }
 
-function endEditTask(task, taskText) {
-  taskText.innerText = taskText.innerText.trim();
+function endEditTask(event, task, taskText, originText) {
+  if (event.key === "Escape") {
+    taskText.innerText = originText;
+  } else {
+    taskText.innerText = taskText.innerText.trim();
+  }
   task.classList.remove("task_editing");
   taskText.removeAttribute("contenteditable");
   updateUserTasksInDB(
@@ -28,7 +32,12 @@ function setSelection(event, taskText) {
   selection.addRange(range);
 }
 
-function addEditTaskEventsListeners(eventClickFromPencil, task, taskText) {
+function addEditTaskEventsListeners(
+  eventClickFromPencil,
+  task,
+  taskText,
+  originText
+) {
   const eventHadler = (event) => {
     if (event.type === "keydown") {
       checkSymbolLimit(event, taskText);
@@ -36,10 +45,9 @@ function addEditTaskEventsListeners(eventClickFromPencil, task, taskText) {
     const needRemoveListeners =
       !event.target.closest(".task__text") ||
       ["Enter", "Escape"].includes(event.key);
-
     if (needRemoveListeners) {
       event.preventDefault();
-      endEditTask(task, taskText);
+      endEditTask(event, task, taskText, originText);
       window.removeEventListener("click", eventHadler);
       window.removeEventListener("keydown", eventHadler);
     }
@@ -60,7 +68,7 @@ function editTask(event, task) {
   taskText.setAttribute("contenteditable", "true");
   taskText.focus();
   setSelection(event, taskText);
-  addEditTaskEventsListeners(event, task, taskText);
+  addEditTaskEventsListeners(event, task, taskText, taskText.innerText);
 }
 
 export { editTask };
