@@ -15,6 +15,7 @@ function endEditTask(event, task, taskText, originText) {
   }
   task.classList.remove("task_editing");
   taskText.removeAttribute("contenteditable");
+  taskText.blur()
   updateUserTasksInDB(
     taskText.textContent,
     task.dataset.taskType,
