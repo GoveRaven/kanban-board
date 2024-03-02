@@ -40,6 +40,10 @@ tasksLists.forEach((list) => {
   list.addEventListener("dragover", dragover);
 });
 
+window.addEventListener("dragover", (event) => {
+  event.preventDefault();
+});
+
 function getNextElement(cursorPosition, currentElement) {
   const currentElementCoord = currentElement.getBoundingClientRect();
   const currentElementCenter =
