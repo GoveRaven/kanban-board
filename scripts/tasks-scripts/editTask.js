@@ -63,9 +63,4 @@ function editTask(event, task) {
   addEditTaskEventsListeners(event, task, taskText);
 }
 
-tasks.forEach((task) => {
-  const pencilIcon = task.querySelector(".task__icon");
-  pencilIcon.addEventListener("click", (event) => editTask(event, task));
-});
-
 export { editTask };

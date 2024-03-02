@@ -18,6 +18,10 @@
   cursor: move;
 }
 
+.task:focus-visible {
+  outline: solid var(--focus-visible-color) 1px;
+}
+
 .main__tasks {
   font-weight: var(--font-bold);
 }
@@ -32,22 +36,39 @@
   stroke: black;
   padding: 6px;
   box-sizing: content-box;
-  visibility: hidden;
+  opacity: 0;;
   flex-shrink: 0;
   cursor: pointer;
 }
 
-.task__icon:hover {
+.task__icon:hover,
+.task__icon:focus-visible {
   border-radius: var(--radius-size-small);
   background-color: rgba(206, 206, 206, 0.25);
 }
 
-.task:hover .task__icon {
-  visibility: visible;
+.task__icon:focus-visible {
+  outline: solid var(--focus-visible-color) 1px;
+  background-color: rgba(206, 206, 206, 0.25);
+  opacity: 1;
+}
+
+.task__icon:focus {
+  outline: none;
+}
+
+.task:hover .task__icon,
+.task:focus-visible .task__icon {
+  opacity: 1;
 }
 
 .task__text {
   outline: none;
+}
+
+.task__text:focus-visible {
+  outline: solid var(--focus-visible-color) 1px;
+  border-radius: var(--radius-size-editing);
 }
 
 .task_editing .task__text {
@@ -61,7 +82,7 @@
   background-color: #d1e2f8;
   stroke: var(--editing-color);
   border-radius: var(--radius-size-editing);
-  visibility: visible;
+  opacity: 1;
 }
 
 .tasks__list_backlog .task {
