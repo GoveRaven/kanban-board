@@ -46,6 +46,10 @@
   background-color: rgba(206, 206, 206, 0.25);
 }
 
+.task__icon:focus {
+  outline: none;
+}
+
 .task__icon:focus-visible {
   outline: solid var(--focus-visible-color) 1px;
   border-radius: var(--radius-size-small);
