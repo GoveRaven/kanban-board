@@ -10,15 +10,15 @@ function addInfo(currentUser) {
 const logOutBtn = document.querySelector(".user__logOutBtn");
 const logOut = document.querySelector(".user__logOut");
 
-function removeLogoutWithClick() {
+function toogleLogoutWithClick() {
   logOutBtn.classList.toggle("user__logOutBtn-close");
   if (logOut.classList.toggle("user__logOut-close")) {
-    window.removeEventListener("click", removeLogoutWithClick);
+    window.removeEventListener("click", toogleLogoutWithClick);
   }
 }
 
 user.addEventListener("click", () => {
-  window.addEventListener("click", removeLogoutWithClick);
+  window.addEventListener("click", toogleLogoutWithClick);
 });
 
 export { addInfo };
