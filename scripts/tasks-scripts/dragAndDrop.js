@@ -26,6 +26,7 @@ tasks.forEach((task) => {
 });
 
 function dragover(event) {
+  event.preventDefault();
   const list = event.target.closest(".tasks__list");
   const currentTask = event.target;
   const selectedTask = document.querySelector(".task_dragndrop");
@@ -38,10 +39,6 @@ function dragover(event) {
 
 tasksLists.forEach((list) => {
   list.addEventListener("dragover", dragover);
-});
-
-window.addEventListener("dragover", (event) => {
-  event.preventDefault();
 });
 
 function getNextElement(cursorPosition, currentElement) {
