@@ -1,33 +1,26 @@
 import { tasks } from "./consts.js";
 import { updateUserTasksInDB } from "../realtimeDatabase.js";
 
-function endEditTask(task, taskText) {
+function checkSymbolLimit(event, text) {
+  if (text.innerText.length >= 100 && event.key !== "Backspace") {
+    event.preventDefault();
+  }
+}
+
+function endEditTask(event, task, taskText, originText) {
+  if (event.key === "Escape") {
+    taskText.innerText = originText;
+  } else {
+    taskText.innerText = taskText.innerText.trim();
+  }
   task.classList.remove("task_editing");
   taskText.removeAttribute("contenteditable");
+  taskText.blur()
   updateUserTasksInDB(
     taskText.textContent,
     task.dataset.taskType,
     task.dataset.key
   );
-}
-
-function endEditTaskWithKeyDown(event, task, taskText) {
-  if (["Enter", "Escape"].includes(event.key)) {
-    event.preventDefault();
-    endEditTask(task, taskText);
-    window.removeEventListener("keydown", (event) =>
-      endEditTaskWithKeyDown(event, task, taskText)
-    );
-  }
-}
-
-function endEditTaskWithClick(event, task, taskText) {
-  if (!event.target.closest(".task")) {
-    endEditTask(task, taskText);
-    window.removeEventListener("click", (event) =>
-      endEditTaskWithClick(event, task, taskText)
-    );
-  }
 }
 
 function setSelection(event, taskText) {
@@ -40,8 +33,34 @@ function setSelection(event, taskText) {
   selection.addRange(range);
 }
 
+function addEditTaskEventsListeners(
+  eventClickFromPencil,
+  task,
+  taskText,
+  originText
+) {
+  const eventHadler = (event) => {
+    if (event.type === "keydown") {
+      checkSymbolLimit(event, taskText);
+    }
+    const needRemoveListeners =
+      !event.target.closest(".task__text") ||
+      ["Enter", "Escape"].includes(event.key);
+    if (needRemoveListeners) {
+      event.preventDefault();
+      endEditTask(event, task, taskText, originText);
+      window.removeEventListener("click", eventHadler);
+      window.removeEventListener("keydown", eventHadler);
+    }
+  };
+  window.addEventListener("click", eventHadler);
+  window.addEventListener("keydown", eventHadler);
+  eventClickFromPencil.stopPropagation();
+}
+
 function editTask(event, task) {
   const smthIsEditing = document.querySelector(".task_editing");
+  if (event.target.closest(".task") === smthIsEditing) return;
   if (smthIsEditing) {
     smthIsEditing.classList.remove("task_editing");
   }
@@ -50,17 +69,7 @@ function editTask(event, task) {
   taskText.setAttribute("contenteditable", "true");
   taskText.focus();
   setSelection(event, taskText);
-  window.addEventListener("click", (event) =>
-    endEditTaskWithClick(event, task, taskText)
-  );
-  window.addEventListener("keydown", (event) =>
-    endEditTaskWithKeyDown(event, task, taskText)
-  );
+  addEditTaskEventsListeners(event, task, taskText, taskText.innerText);
 }
-
-tasks.forEach((task) => {
-  const pencilIcon = task.querySelector(".task__icon");
-  pencilIcon.addEventListener("click", (event) => editTask(event, task));
-});
 
 export { editTask };

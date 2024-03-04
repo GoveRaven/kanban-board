@@ -155,3 +155,11 @@
 .trash-can__btn:disabled {
   background-color: var(--disabledBtn-color);
 }
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

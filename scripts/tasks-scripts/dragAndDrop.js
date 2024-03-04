@@ -26,8 +26,9 @@ tasks.forEach((task) => {
 });
 
 function dragover(event) {
+  event.preventDefault();
   const list = event.target.closest(".tasks__list");
-  const currentTask = event.target;
+  const currentTask = event.target.closest(".task");
   const selectedTask = document.querySelector(".task_dragndrop");
   const nextElement = getNextElement(event.clientY, currentTask);
   if (currentTask.classList.contains("task")) {

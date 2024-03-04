@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  min-height: 68px;
+  min-height: 72px;
   width: 280px;
   padding: 20px;
   gap: 10px;
@@ -15,7 +15,11 @@
   border-width: 0 0 0 6px;
   border-style: solid;
   font-weight: var(--font-bold);
-  cursor: pointer;
+  cursor: move;
+}
+
+.task:focus-visible {
+  outline: solid var(--focus-visible-color) 1px;
 }
 
 .main__tasks {
@@ -32,29 +36,52 @@
   stroke: black;
   padding: 6px;
   box-sizing: content-box;
-  visibility: hidden;
+  opacity: 0;
   flex-shrink: 0;
+  cursor: pointer;
 }
 
-.task:hover .task__icon {
-  visibility: visible;
+.task__icon:hover {
+  border-radius: var(--radius-size-small);
+  background-color: rgba(206, 206, 206, 0.25);
+}
+
+.task__icon:focus {
+  outline: none;
+}
+
+.task__icon:focus-visible {
+  outline: solid var(--focus-visible-color) 1px;
+  border-radius: var(--radius-size-small);
+  opacity: 1;
+}
+
+.task:hover .task__icon,
+.task:focus-visible .task__icon {
+  opacity: 1;
 }
 
 .task__text {
   outline: none;
 }
 
+.task__text:focus-visible {
+  outline: solid var(--focus-visible-color) 1px;
+  border-radius: var(--radius-size-editing);
+}
+
 .task_editing .task__text {
   flex-grow: 1;
   outline: 1px solid var(--editing-color);
   border-radius: var(--radius-size-editing);
+  cursor: auto;
 }
 
 .task_editing .task__icon {
   background-color: #d1e2f8;
   stroke: var(--editing-color);
   border-radius: var(--radius-size-editing);
-  visibility: visible;
+  opacity: 1;
 }
 
 .tasks__list_backlog .task {
@@ -82,4 +109,5 @@
   background-color: initial;
   border: 2px dashed var(--noTasks-color);
   color: var(--noTasks-color);
+  cursor: default;
 }
